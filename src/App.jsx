@@ -1,34 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import SectionContainer from "./components/SectionContainer.jsx";
+import Briefcase from "./components/icons/Briefcase.jsx";
+import Layout from "./layouts/Layout.jsx";
+// import AboutMe from "../components/AboutMe.jsx";
+// import Briefcase from "../components/icons/Briefcase.jsx";
+// import CodeIcon from "../components/icons/Code.jsx";
+// import Experience from "../components/Experience.jsx";
+// import ProfileCheck from "../components/icons/ProfileCheck.jsx";
+// import Projects from "../components/Projects.jsx";
+// import SectionContainer from "../components/SectionContainer.jsx";
+// import Hero from "../components/Hero.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
+const Portfolio = () => (
+  <Layout
+    title="Porfolio de Naiim - Desarrollador y Programador Web con 15 años de experiencia"
+    description="Contrata a midudev para crear tu aplicación web o móvil. Desarrollador Web y Creador de Contenido. Especializado en crear aplicaciones únicas."
+  >
+      <div className="space-y-24">
+        <SectionContainer id="experiencia">
+          <h2 className="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
+            <Briefcase className="size-8" />
+            Experiencia laboral
+          </h2>
+          {/* <Experience /> */}
+        </SectionContainer>
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        {/* <SectionContainer id="proyectos">
+          <h2 className="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
+            <CodeIcon className="size-7" />
+            Proyectos
+          </h2>
+          <Projects />
+        </SectionContainer>
+
+        <SectionContainer id="sobre-mi">
+          <h2 className="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white">
+            <ProfileCheck className="size-8" />
+            Sobre mí
+          </h2>
+          <AboutMe />
+        </SectionContainer> */}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+  </Layout>
+);
 
-export default App
+export default Portfolio;
