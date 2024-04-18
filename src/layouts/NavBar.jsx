@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import Briefcase from "../components/icons/Briefcase";
 import Code from "../components/icons/Code";
 import ProfileCheck from "../components/icons/ProfileCheck";
+import NavMenu from "./NavMenu";
 
 const NavBar = () => {
   const location = useLocation();
@@ -10,7 +11,7 @@ const NavBar = () => {
   const currentURL = location.pathname;
 
   return (
-    <>
+    <div className="relative mx-6">
       <div className="flex justify-center items-center mt-6">
         <nav className="text-right col-span-2 flex justify-end items-center">
           <Link
@@ -48,7 +49,10 @@ const NavBar = () => {
           </Link>
         </nav>
       </div>
-    </>
+      <div className="absolute top-0 right-0">
+        <NavMenu />
+      </div>
+    </div>
   );
 };
 

@@ -1,11 +1,10 @@
 import { useTranslation } from "react-i18next";
-import PageTitle from "../components/PageTitle";
 
 const AboutMe = () => {
   const [t] = useTranslation("translation");
   return (
     <div>
-      <PageTitle title={`${t("About Me")}`} />
+      {t('SECCION SOBRE MI')}
     </div>
   );
 };
