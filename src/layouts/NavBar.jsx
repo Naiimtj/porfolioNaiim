@@ -4,6 +4,7 @@ import Briefcase from "../components/icons/Briefcase";
 import Code from "../components/icons/Code";
 import ProfileCheck from "../components/icons/ProfileCheck";
 import NavMenu from "./NavMenu";
+import ThemeSwitcher from "../components/ThemeToggle";
 
 const NavBar = () => {
   const location = useLocation();
@@ -11,14 +12,14 @@ const NavBar = () => {
   const currentURL = location.pathname;
 
   return (
-    <div className="relative mx-6">
+    <div className="relative">
       <div className="flex justify-center items-center mt-6">
         <nav className="text-right col-span-2 flex justify-end items-center">
           <Link
             className={`${
               currentURL === "/"
-                ? "dark:text-lilaPorfolio font-bold text-black"
-                : "dark:text-grayPorfolio text-gray-600"
+                ? "dark:text-lilaPortfolio font-bold text-black"
+                : "dark:text-grayPortfolio text-gray-600"
             } text-xs md:text-base lg:text-xl pr-4 hover:text-gray-300 transition duration-300 flex items-center`}
             to="/"
           >
@@ -28,8 +29,8 @@ const NavBar = () => {
           <Link
             className={`${
               currentURL === "/projects"
-                ? "dark:text-lilaPorfolio font-bold text-black"
-                : "dark:text-grayPorfolio text-gray-600"
+                ? "dark:text-lilaPortfolio font-bold text-black"
+                : "dark:text-grayPortfolio text-gray-600"
             } text-xs md:text-base lg:text-xl pr-4 hover:text-gray-300 flex items-center`}
             to="/projects"
           >
@@ -39,8 +40,8 @@ const NavBar = () => {
           <Link
             className={`${
               currentURL === "/aboutMe"
-                ? "dark:text-lilaPorfolio font-bold text-black"
-                : "dark:text-grayPorfolio text-gray-600"
+                ? "dark:text-lilaPortfolio font-bold text-black"
+                : "dark:text-grayPortfolio text-gray-600"
             } text-xs md:text-base lg:text-xl pr-4 hover:text-gray-300 flex items-center`}
             to="/aboutMe"
           >
@@ -48,6 +49,7 @@ const NavBar = () => {
             {t("About Me")}
           </Link>
         </nav>
+        <ThemeSwitcher />
       </div>
       <div className="absolute top-0 right-0">
         <NavMenu />

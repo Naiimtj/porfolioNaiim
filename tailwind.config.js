@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["index.html", "./src/**/*.jsx"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        "lilaPorfolio": '#9C92F8',
-        "grayPorfolio": '#E5E5E5'
-      }
+        lilaPortfolio: "#9C92F8",
+        grayPortfolio: "#E5E5E5",
+      },
     },
   },
   plugins: [],
