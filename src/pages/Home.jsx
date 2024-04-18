@@ -4,33 +4,51 @@ import Projects from "./Projects";
 import AboutMe from "./AboutMe";
 import SectionContainer from "../components/SectionContainer";
 import Badge from "../components/Badge";
-import { LinkedInIcon } from "../components/icons/SocialMedia";
+import { LinkedInIcon, MailIcon } from "../components/icons/SocialMedia";
 import SocialPill from "../components/SocialPill";
-
+// import personalImageAlt from "../../public/me.png";
 
 const Home = () => {
   const [t] = useTranslation("translation");
   return (
     <div>
-      SOY NAIIM TAEFY JIMENEZ
       <SectionContainer className="py-44 pb-32 flex flex-col gap-y-10">
-        <article className="mb-10">
-          <h1 className="mb-4 text-xl font-semibold">&lt;Badge /&gt;</h1>
-
-          <Badge>{t('Disponible para trabajar')}</Badge>
-        </article>
-
-        <article className="mb-10">
-          <h1 className="mb-4 text-xl font-semibold">&lt SocialPill /&gt;</h1>
-
-          <div className="flex">
+        <div className="max-w-xl">
+          <div className="flex gap-4 mb-4">
+            {/* <img
+              className="rounded-full shadow-lg size-16"
+              src={personalImageAlt}
+              alt={t("Picture Naiim")}
+            /> */}
+            <a
+              href="https://linkedin.com/in/naiim-taefy-jimenez"
+              target="_blank"
+              rel="noopener"
+              className="flex items-center transition md:justify-center"
+            >
+              <Badge>{t('Open to opportunities')}</Badge>
+            </a>
+          </div>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
+            {t("Hey, I'm")} Naiim
+          </h1>
+          <p className="mt-6 text-xl text-gray-800 dark:[&>strong]:text-blue-300 [&>strong]:text-blue-500 [&>strong]:font-semibold dark:text-gray-300">
+            <strong>Desarrollador Front-End</strong> de Madrid, España 🇪🇸.
+            Especializado en el desarrollo de aplicaciones web únicas.
+          </p>
+          <nav className="flex flex-wrap gap-4 mt-8">
+            <SocialPill url="mailto:naiim.tj@gmail.com">
+              <MailIcon className="size-5" />
+              Contáctame
+            </SocialPill>
             <SocialPill url="https://linkedin.com/in/naiim-taefy-jimenez">
-              <LinkedInIcon className="size-4 md:size-6" />
+              <LinkedInIcon className="size-5" />
               LinkedIn
             </SocialPill>
-          </div>
-        </article>
+          </nav>
+        </div>
       </SectionContainer>
+
       <WorkExperience />
       <Projects />
       <AboutMe />

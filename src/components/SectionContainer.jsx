@@ -17,11 +17,11 @@ export default SectionContainer;
 SectionContainer.defaultProps = {
   id: "",
   className: "",
-  children: [],
+  children: {},
 };
 
 SectionContainer.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
-  children: PropTypes.array,
+  children: PropTypes.object,
 };

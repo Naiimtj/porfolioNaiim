@@ -1,13 +1,13 @@
 export default function Footer() {
   return (
-    <footer className="text-center dark:text-grayPorfolio text-black lg:text-left mx-6">
+    <footer className="text-center dark:text-grayPortfolio text-black lg:text-left mx-6">
       <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 lg:justify-between">
         <div className="mr-12 hidden lg:block">
           <span>Get connected with me on social networks:</span>
         </div>
         {/* <!-- Social network icons container --> */}
         <div className="flex justify-center">
-          <a className="dark:text-grayPorfolio text-black ">
+          <a className="dark:text-grayPortfolio text-black ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"
@@ -39,16 +39,16 @@ export default function Footer() {
               Pages
             </h6>
             <p className="mb-4">
-              <a className="dark:text-grayPorfolio text-black ">Home</a>
+              <a className="dark:text-grayPortfolio text-black ">Home</a>
             </p>
             <p className="mb-4">
-              <a className="dark:text-grayPorfolio text-black ">Movies</a>
+              <a className="dark:text-grayPortfolio text-black ">Movies</a>
             </p>
             <p className="mb-4">
-              <a className="dark:text-grayPorfolio text-black ">TV Shows</a>
+              <a className="dark:text-grayPortfolio text-black ">TV Shows</a>
             </p>
             <p>
-              <a className="dark:text-grayPorfolio text-black ">Profile</a>
+              <a className="dark:text-grayPortfolio text-black ">Profile</a>
             </p>
           </div>
           {/* <!-- Useful links section --> */}
@@ -57,16 +57,16 @@ export default function Footer() {
               Useful links
             </h6>
             <p className="mb-4">
-              <a className="dark:text-grayPorfolio text-black ">Forum</a>
+              <a className="dark:text-grayPortfolio text-black ">Forum</a>
             </p>
             <p className="mb-4">
-              <a className="dark:text-grayPorfolio text-black ">Settings</a>
+              <a className="dark:text-grayPortfolio text-black ">Settings</a>
             </p>
             <p className="mb-4">
-              <a className="dark:text-grayPorfolio text-black ">FAQs</a>
+              <a className="dark:text-grayPortfolio text-black ">FAQs</a>
             </p>
             <p>
-              <a className="dark:text-grayPorfolio text-black ">Help</a>
+              <a className="dark:text-grayPortfolio text-black ">Help</a>
             </p>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function Footer() {
       <div className="p-2 text-center dark:bg-neutral-700">
         <span>© 2023 Copyright:</span>
         <a
-          className="font-semibold dark:text-grayPorfolio text-black dark:text-neutral-400 ml-2"
+          className="font-semibold dark:text-grayPortfolio text-black dark:text-neutral-400 ml-2"
           href="https://www.linkedin.com/in/naiim-taefy-jimenez/"
         >
           Naiim Taefy
