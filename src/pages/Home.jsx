@@ -26,20 +26,22 @@ const Home = () => {
               rel="noopener"
               className="flex items-center transition md:justify-center"
             >
-              <Badge>{t('Open to opportunities')}</Badge>
+              <Badge>{t("Open to opportunities")}</Badge>
             </a>
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
             {t("Hey, I'm")} Naiim
           </h1>
-          <p className="mt-6 text-xl text-gray-800 dark:[&>strong]:text-blue-300 [&>strong]:text-blue-500 [&>strong]:font-semibold dark:text-gray-300">
-            <strong>Desarrollador Front-End</strong> de Madrid, España 🇪🇸.
-            Especializado en el desarrollo de aplicaciones web únicas.
+          <p className="mt-6 text-xl text-gray-800 dark:[&>strong]:text-purple-300 [&>strong]:text-purple-500 [&>strong]:font-semibold dark:text-gray-300">
+            <strong>{t("Front-End Developer")}</strong>{" "}
+            {t(
+              "from Madrid, Spain. Specialized in the development of unique web applications."
+            )}
           </p>
           <nav className="flex flex-wrap gap-4 mt-8">
             <SocialPill url="mailto:naiim.tj@gmail.com">
               <MailIcon className="size-5" />
-              Contáctame
+              {t("Contact me")}
             </SocialPill>
             <SocialPill url="https://linkedin.com/in/naiim-taefy-jimenez">
               <LinkedInIcon className="size-5" />
@@ -48,7 +50,6 @@ const Home = () => {
           </nav>
         </div>
       </SectionContainer>
-
       <WorkExperience />
       <Projects />
       <AboutMe />
