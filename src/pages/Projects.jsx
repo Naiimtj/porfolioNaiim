@@ -7,7 +7,7 @@ const Projects = () => {
   const [t] = useTranslation("translation");
   return (
     <SectionContainer id="projects">
-      <h2 className="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
+      <h2 className="flex items-center my-16 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
         <Code className="size-8" />
         {t("Projects")}
       </h2>
