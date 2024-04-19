@@ -16,7 +16,6 @@ import {
   TailwindCss,
   Vite,
   Css,
-  Wordpress,
 } from "./icons/languages";
 import {
   MacOS,
@@ -26,6 +25,7 @@ import {
   VmWare,
   Windows,
   WindowsServer,
+  Wordpress,
 } from "./icons/programs";
 import ShowMore from "./ShowMore";
 
@@ -45,7 +45,6 @@ const languageComponents = {
   "Tailwind CSS": TailwindCss,
   Vite: Vite,
   CSS3: Css,
-  Wordpress: Wordpress,
 };
 
 const programComponents = {
@@ -56,6 +55,7 @@ const programComponents = {
   "SQL Server": SqlServer,
   "Mac OS": MacOS,
   VmWare: VmWare,
+  Wordpress: Wordpress,
 };
 
 const ExperienceItem = ({
@@ -97,7 +97,9 @@ const ExperienceItem = ({
                     />
                   )}
                   {hover ? (
-                    <div className="absolute bottom-5">{program}</div>
+                    <div className="absolute bottom-5 text-lilaLightPortfolio dark:text-lilaPortfolio">
+                      {program}
+                    </div>
                   ) : null}
                 </div>
               );
@@ -125,7 +127,13 @@ const ExperienceItem = ({
                     />
                   )}
                   {hover ? (
-                    <div className={"absolute bottom-0"}>{language}</div>
+                    <div
+                      className={
+                        "absolute bottom-0 text-lilaLightPortfolio dark:text-lilaPortfolio"
+                      }
+                    >
+                      {language}
+                    </div>
                   ) : null}
                 </div>
               );

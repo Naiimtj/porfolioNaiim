@@ -12,5 +12,4 @@ export { default as NodeJs } from './NodeJs';
 export { default as Php } from './Php';
 export { default as TailwindCss } from './TailwindCss';
 export { default as Vite } from './Vite';
-export { default as Wordpress } from './Wordpress';
 export { default as Css } from './Css';

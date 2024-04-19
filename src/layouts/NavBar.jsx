@@ -62,7 +62,7 @@ const NavBar = () => {
         <div className="flex justify-center items-center">
           <div
             className={`flex items-center backdrop-blur-md ${
-              activeSection ? "bg-black/25" : ""
+              activeSection ? "dark:bg-black/25 bg-white/25" : ""
             } p-2 rounded-xl`}
           >
             <nav className="text-right col-span-2 flex justify-end items-center">

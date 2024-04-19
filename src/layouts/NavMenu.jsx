@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
-import { FlagES, FlagFR, FlagUSA } from "../components/icons/flagsLang";
+import { FlagES, FlagUSA } from "../components/icons/flagsLang";
 
 const LANGS = [
   {
@@ -13,11 +13,6 @@ const LANGS = [
     value: "esES",
     label: "Spanish",
     icon: FlagES,
-  },
-  {
-    value: "frFR",
-    label: "French",
-    icon: FlagFR,
   },
 ];
 
@@ -71,9 +66,6 @@ const NavMenu = () => {
       case "enUS":
         language = "en";
         break;
-      case "frFR":
-        language = "fr";
-        break;
       default:
         language = null;
         break;
@@ -100,7 +92,11 @@ const NavMenu = () => {
   };
   return (
     <div>
-      <button ref={anchorRef} onClick={handleOpen} className="hover:scale-125 transition duration-300">
+      <button
+        ref={anchorRef}
+        onClick={handleOpen}
+        className="hover:scale-125 transition duration-300"
+      >
         <img
           src={CurrentLang && CurrentLang.icon}
           alt={`${t("Current language")} ${CurrentLang.label}`}

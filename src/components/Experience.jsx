@@ -60,8 +60,8 @@ const EXPERIENCES = [
         <li>- Soporte técnico.</li>
       </ul>
     ),
-    languages: ["Wordpress", "JavaScript", "HTML5", "CSS3", "Php", "SQL"],
-    programs: [],
+    languages: ["JavaScript", "HTML5", "CSS3", "Php", "SQL"],
+    programs: ["Wordpress"],
   },
   {
     date: "Marzo 2020 - Junio 2021",
@@ -76,8 +76,8 @@ const EXPERIENCES = [
         <li>- Pasarela de pago y sistema de cobro.</li>
       </ul>
     ),
-    languages: ["Wordpress", "JavaScript", "HTML5", "CSS3",],
-    programs: [],
+    languages: ["JavaScript", "HTML5", "CSS3",],
+    programs: ["Wordpress"],
   },
 ];
 

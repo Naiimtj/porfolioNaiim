@@ -38,7 +38,7 @@ const Home = () => {
               {t("Specialized in the development of unique web applications.")}
             </p>
           </div>
-
+          {/* // - SOCIAL MEDIA */}
           <nav className="flex flex-wrap gap-4 mt-8">
             <SocialPill url="mailto:naiim.tj@gmail.com">
               <MailIcon className="size-5" />
