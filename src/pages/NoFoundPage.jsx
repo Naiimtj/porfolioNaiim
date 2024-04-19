@@ -6,7 +6,9 @@ function NotFoundPage() {
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
         <h1 className="text-6xl text-gray-700 font-bold">404</h1>
-        <p className="text-2xl text-gray-600">{t("Page not found")}</p>
+        <p className="text-2xl text-grayLightPortfolio">
+          {t("Page not found")}
+        </p>
       </div>
     </div>
   );

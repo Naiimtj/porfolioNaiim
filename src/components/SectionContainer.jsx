@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const SectionContainer = ({id, className, children}) => {
+const SectionContainer = ({ id, className, children }) => {
   return (
     <section
       id={id}
@@ -17,11 +17,11 @@ export default SectionContainer;
 SectionContainer.defaultProps = {
   id: "",
   className: "",
-  children: {},
+  children: [],
 };
 
 SectionContainer.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
-  children: PropTypes.object,
+  children: PropTypes.any,
 };

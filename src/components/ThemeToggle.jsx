@@ -91,7 +91,7 @@ const ThemeSwitcher = () => {
     <div className="relative ml-1 mr-1">
       <button
         id="theme-toggle-btn"
-        className="appearance-none border-none flex hover:scale-125 transition"
+        className="appearance-none border-none flex hover:scale-125 transition duration-300"
         onClick={toggleMenu}
       >
         <span className="sr-only">{t("Select theme")}</span>

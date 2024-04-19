@@ -100,7 +100,7 @@ const NavMenu = () => {
   };
   return (
     <div>
-      <button ref={anchorRef} onClick={handleOpen}>
+      <button ref={anchorRef} onClick={handleOpen} className="hover:scale-125 transition duration-300">
         <img
           src={CurrentLang && CurrentLang.icon}
           alt={`${t("Current language")} ${CurrentLang.label}`}
