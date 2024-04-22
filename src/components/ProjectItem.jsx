@@ -26,7 +26,7 @@ const PROJECTS = [
   {
     title: "Reports",
     description:
-      "Plataforma de reportes para plantas de fabricación. Creado desde cero con React, Node.js y Tailwind CSS.",
+      "Reporting platform for manufacturing plants. Built from scratch with React, Node.js and Tailwind CSS.",
     image: "/projects/Home-Seppelec.webp",
     tags: [
       "Git",
@@ -49,7 +49,7 @@ const PROJECTS = [
   {
     title: "NexReel",
     description:
-      "Plataforma gratuita de peliculas y series. Creada desde cero con React, Node.js y Tailwind CSS.",
+      "Free platform for movies and series. Built from scratch with React, Node.js and Tailwind CSS.",
     github: "https://github.com/Naiimtj/NexReel",
     image: "/projects/NexReel.webp",
     tags: [
@@ -109,7 +109,7 @@ const ProjectItem = () => {
                     <Close
                       className="inline-block align-middle"
                       size={24}
-                      alt="Cerrar"
+                      alt={t("Close")}
                       onClick={() => setExpandedImage(null)}
                     />
                   </div>
@@ -171,7 +171,7 @@ const ProjectItem = () => {
                 </div>
 
                 <div className="text-gray-700 dark:text-gray-400">
-                  {description}
+                  {t(description)}
                 </div>
                 <footer className="flex items-end justify-start mt-4 gap-x-4">
                   {github && (

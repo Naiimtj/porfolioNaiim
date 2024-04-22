@@ -101,11 +101,12 @@ const NavBar = () => {
               </Link>
             </nav>
             <ThemeSwitcher />
+            <div className="md:ml-10 md:mt-2 z-50">
+            <NavMenu />
           </div>
+          </div>
+          
         </div>
-      </div>
-      <div className="absolute top-6 right-0 z-50">
-        <NavMenu />
       </div>
     </div>
   );
