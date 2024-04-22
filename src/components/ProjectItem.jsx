@@ -21,6 +21,7 @@ import {
   Vite,
 } from "./icons/languages";
 import { useTranslation } from "react-i18next";
+import SocialPill from "./SocialPill";
 
 const PROJECTS = [
   {
@@ -151,7 +152,7 @@ const ProjectItem = () => {
                         >
                           {LanguageComponent && (
                             <LanguageComponent
-                              className="size-9 hover:text-lilaLightPortfolio dark:hover:text-lilaPortfolio"
+                              className="size-9 hover:text-gray-500 dark:hover:text-gray-400"
                               onMouseEnter={() => setHover(index + 1)}
                               onMouseLeave={() => setHover(null)}
                             />
@@ -159,7 +160,7 @@ const ProjectItem = () => {
                           {hover ? (
                             <div
                               className={
-                                "absolute bottom-0 text-lilaLightPortfolio dark:text-lilaPortfolio"
+                                "absolute bottom-0 text-gray-500 dark:text-gray-400"
                               }
                             >
                               {language}
@@ -175,15 +176,15 @@ const ProjectItem = () => {
                 </div>
                 <footer className="flex items-end justify-start mt-4 gap-x-4">
                   {github && (
-                    <LinkButton href={github}>
+                    <SocialPill url={github}>
                       <GitHub className="size-6" />
-                      {t("Code")}
-                    </LinkButton>
+                      GitHub
+                    </SocialPill>
                   )}
                   {link && (
                     <LinkButton href={link}>
                       <Link className="size-4" />
-                      {t('Preview')}
+                      {t("Preview")}
                     </LinkButton>
                   )}
                 </footer>

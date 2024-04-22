@@ -15,7 +15,7 @@ import personalImageAlt from "/me.png";
 const Home = () => {
   const [t] = useTranslation("translation");
   return (
-    <div>
+    <div className="!scroll-smooth">
       <SectionContainer className="py-44 pb-32 flex flex-col gap-y-10">
         <div className="max-w-xl">
           <div className="flex gap-6 mb-4">
