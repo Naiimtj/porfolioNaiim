@@ -14,7 +14,7 @@ import {
   Sql,
   TailwindCss,
   Vite,
-} from "./icons/languages";
+} from "../components/icons/languages";
 
 const languageComponents = (language) => {
   const languageIcons = {

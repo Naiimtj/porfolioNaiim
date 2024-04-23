@@ -105,7 +105,7 @@ const ThemeSwitcher = () => {
   }, [theme]);
 
   return (
-    <div className="relative ml-1 mr-1">
+    <div className="relative ml-1 mr-1 ">
       <button
         id="theme-toggle-btn"
         className="appearance-none border-none flex hover:scale-125 transition duration-300"
@@ -134,7 +134,7 @@ const ThemeSwitcher = () => {
       {isMenuOpen && (
         <div
           id="themes-menu"
-          className="absolute scale-80 top-8 right-0 text-sm p-1 min-w-[8rem] rounded-md border border-gray-100 bg-white/90 dark:bg-gray-900/90 dark:border-gray-500/20 shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
+          className="absolute scale-80 top-8 md:right-0 text-sm p-1 md:min-w-[8rem] rounded-md border border-gray-100 bg-white/90 dark:bg-gray-900/90 dark:border-gray-500/20 shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
         >
           <ul>
             {THEMES.map((themeOption) => (

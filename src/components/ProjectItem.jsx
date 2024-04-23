@@ -5,59 +5,7 @@ import Close from "./icons/Close";
 import { useTranslation } from "react-i18next";
 import SocialPill from "./SocialPill";
 import LanguageSingle from "./LanguageSingle";
-
-const PROJECTS = [
-  {
-    title: "Reports",
-    description:
-      "Reporting platform for manufacturing plants. Built from scratch with React, Node.js and Tailwind CSS.",
-    image: "/projects/Home-Seppelec.webp",
-    tags: [
-      "Git",
-      "JavaScript",
-      "React",
-      "Vite",
-      "Tailwind CSS",
-      "Python",
-      "MongoDb",
-      "NodeJs",
-      "MySQL",
-      "SQL",
-      "HTML5",
-      "CSS3",
-      "Docker",
-      "Debian",
-      "Php",
-    ],
-  },
-  {
-    title: "NexReel",
-    description:
-      "Free platform for movies and series. Built from scratch with React, Node.js and Tailwind CSS.",
-    github: "https://github.com/Naiimtj/NexReel",
-    image: "/projects/NexReel.webp",
-    tags: [
-      "Git",
-      "JavaScript",
-      "React",
-      "Vite",
-      "Tailwind CSS",
-      "MongoDb",
-      "NodeJs",
-      "HTML5",
-      "CSS3",
-    ],
-  },
-  {
-    title: "ExciteBike Retro Project",
-    description:
-      "Recreation of the classic NES motocross game with new features, such as coin collecting and lives, all in a digital environment!",
-    github: "https://github.com/IronHackNaiimTJ/ExciteBike_game_project",
-    link: "https://excitebike-game-project.netlify.app/",
-    image: "/projects/Excitebike.webp",
-    tags: ["Git", "JavaScript", "HTML5", "CSS3"],
-  },
-];
+import ListProjects from "../data/projects.json"
 
 const ProjectItem = () => {
   const [t] = useTranslation("translation");
@@ -65,7 +13,7 @@ const ProjectItem = () => {
   return (
     <div>
       <div className="relative flex flex-col gap-y-16">
-        {PROJECTS.map(({ image, title, description, tags, link, github }) => {
+        {ListProjects.map(({ image, title, description, tags, link, github }) => {
           const blurArticle = expandedImage === image ? "" : "blur-md";
           return (
             <article
@@ -127,7 +75,7 @@ const ProjectItem = () => {
                 </h3>
                 <div className="flex flex-wrap mt-2">
                   {/* // - LANGUAGES */}
-                  <div className="relative pb-6 flex items-center">
+                  <div className="relative pb-6 flex flex-wrap items-center">
                     {tags &&
                       tags.map((language, index) => (
                         <LanguageSingle

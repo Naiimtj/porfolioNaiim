@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import programComponents from "./programComponents";
+import programComponents from "../utility/programComponents";
 
 const ProgramSingle = ({ program, index }) => {
   const ProgramsComponent = programComponents(program);

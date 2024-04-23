@@ -11,13 +11,15 @@ import {
 } from "../components/icons/SocialMedia";
 import SocialPill from "../components/SocialPill";
 import personalImageAlt from "/me.png";
+import DownloadPill from "../components/DownloadPill";
+import Download from "../components/icons/Download";
 
 const Home = () => {
   const [t] = useTranslation("translation");
   return (
     <div className="!scroll-smooth">
       <SectionContainer className="py-44 pb-32 flex flex-col gap-y-10">
-        <div className="max-w-xl">
+        <div className="">
           <div className="flex gap-6 mb-4">
             <img
               className="rounded-full shadow-lg size-32"
@@ -52,6 +54,19 @@ const Home = () => {
               <GitHub className="size-5" />
               GitHub
             </SocialPill>
+            <DownloadPill
+              url={`/Naiim Taefy Jiménez - ${
+                t("en-EN") === "en-EN" ? "Resume_CV" : "Curriculum"
+              }.pdf`}
+              name={
+                t("en-EN") === "en-EN"
+                  ? "Naiim Taefy Jiménez - Resume_CV.pdf"
+                  : "Naiim Taefy Jiménez - Curriculum.pdf"
+              }
+            >
+              <Download className="size-5" />
+              {t("Download CV")}
+            </DownloadPill>
           </nav>
         </div>
       </SectionContainer>

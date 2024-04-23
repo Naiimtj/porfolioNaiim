@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import languageComponents from "./languageComponents";
+import languageComponents from "../utility/languageComponents";
 
 const LanguageSingle = ({ language, index }) => {
   const LanguageComponent = languageComponents(language);

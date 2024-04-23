@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import Download from "../components/icons/Download";
 import {
   GitHub,
   LinkedInIcon,
@@ -5,6 +7,8 @@ import {
 } from "../components/icons/SocialMedia";
 
 export default function Footer() {
+  const [t] = useTranslation("translation");
+
   return (
     <footer className="text-center dark:text-grayPortfolio text-black lg:text-left mx-6">
       <div className="flex items-center justify-center border-t-2 border-neutral-200 pt-4 lg:justify-center">
@@ -36,6 +40,19 @@ export default function Footer() {
             className="dark:text-grayPortfolio text-black dark:hover:text-lilaPortfolio hover:text-lilaLightPortfolio"
           >
             <GitHub />
+          </a>
+          <a
+            href={`/Naiim Taefy Jiménez - ${
+              t("en-EN") === "en-EN" ? "Resume_CV" : "Curriculum"
+            }.pdf`}
+            download={
+              t("en-EN") === "en-EN"
+                ? "Naiim Taefy Jiménez - Resume_CV.pdf"
+                : "Naiim Taefy Jiménez - Curriculum.pdf"
+            }
+            className="dark:text-grayPortfolio text-black dark:hover:text-lilaPortfolio hover:text-lilaLightPortfolio"
+          >
+            <Download />
           </a>
         </div>
       </div>

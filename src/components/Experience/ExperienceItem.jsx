@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import ShowMore from "./ShowMore";
-import LanguageSingle from "./LanguageSingle";
-import ProgramSingle from "./ProgramSingle";
+import ShowMore from "../ShowMore";
+import LanguageSingle from "../LanguageSingle";
+import ProgramSingle from "../ProgramSingle";
 
 const ExperienceItem = ({
   title,
@@ -42,7 +42,7 @@ const ExperienceItem = ({
         {description}
         {more && more.props && <ShowMore moreInfo={more} />}
         {/* // - LANGUAGES */}
-        <div className="relative pb-6 flex items-center">
+        <div className="relative pb-6 flex flex-wrap items-center">
           {languages &&
             languages.map((language, index) => (
               <LanguageSingle

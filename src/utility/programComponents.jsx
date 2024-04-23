@@ -7,7 +7,7 @@ import {
   Windows,
   WindowsServer,
   Wordpress,
-} from "./icons/programs";
+} from "../components/icons/programs";
 
 const programComponents = (program) => {
   const programIcons = {
