@@ -1,62 +1,7 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
-import {
-  JavaScript,
-  React,
-  Python,
-  MySQL,
-  Sql,
-  Git,
-  Debian,
-  Docker,
-  Html,
-  MongoDb,
-  NodeJs,
-  Php,
-  TailwindCss,
-  Vite,
-  Css,
-} from "./icons/languages";
-import {
-  MacOS,
-  SqlServer,
-  VisualStudio,
-  VisualStudioCode,
-  VmWare,
-  Windows,
-  WindowsServer,
-  Wordpress,
-} from "./icons/programs";
 import ShowMore from "./ShowMore";
-
-const languageComponents = {
-  JavaScript: JavaScript,
-  React: React,
-  Python: Python,
-  MySQL: MySQL,
-  SQL: Sql,
-  Git: Git,
-  Debian: Debian,
-  Docker: Docker,
-  HTML5: Html,
-  MongoDb: MongoDb,
-  NodeJs: NodeJs,
-  Php: Php,
-  "Tailwind CSS": TailwindCss,
-  Vite: Vite,
-  CSS3: Css,
-};
-
-const programComponents = {
-  Windows: Windows,
-  "Windows Server": WindowsServer,
-  "Visual Studio Code": VisualStudioCode,
-  "Visual Studio": VisualStudio,
-  "SQL Server": SqlServer,
-  "Mac OS": MacOS,
-  VmWare: VmWare,
-  Wordpress: Wordpress,
-};
+import LanguageSingle from "./LanguageSingle";
+import ProgramSingle from "./ProgramSingle";
 
 const ExperienceItem = ({
   title,
@@ -83,27 +28,13 @@ const ExperienceItem = ({
         {/* // - PROGRAMS */}
         <div className="flex items-center mt-4">
           {programs &&
-            programs.map((program, index) => {
-              const ProgramsComponent = programComponents[program];
-              // eslint-disable-next-line react-hooks/rules-of-hooks
-              const [hover, setHover] = useState(null);
-              return (
-                <div className="flex flex-col" key={`${index} ${program}`}>
-                  {ProgramsComponent && (
-                    <ProgramsComponent
-                      className="size-9 hover:text-gray-500 dark:hover:text-gray-400"
-                      onMouseEnter={() => setHover(index + 1)}
-                      onMouseLeave={() => setHover(null)}
-                    />
-                  )}
-                  {hover ? (
-                    <div className="absolute bottom-5 text-gray-500 dark:text-gray-400">
-                      {program}
-                    </div>
-                  ) : null}
-                </div>
-              );
-            })}
+            programs.map((program, index) => (
+              <ProgramSingle
+                key={`${index} ${program}`}
+                program={program}
+                index={index + 1}
+              />
+            ))}
         </div>
       </div>
       {/* // - DESCRIPTION */}
@@ -113,31 +44,12 @@ const ExperienceItem = ({
         {/* // - LANGUAGES */}
         <div className="relative pb-6 flex items-center">
           {languages &&
-            languages.map((language, index) => {
-              const LanguageComponent = languageComponents[language];
-              // eslint-disable-next-line react-hooks/rules-of-hooks
-              const [hover, setHover] = useState(null);
-              return (
-                <div className="flex flex-col" key={`${index} ${language}`}>
-                  {LanguageComponent && (
-                    <LanguageComponent
-                      className="size-9 hover:text-gray-500 dark:hover:text-gray-400"
-                      onMouseEnter={() => setHover(index + 1)}
-                      onMouseLeave={() => setHover(null)}
-                    />
-                  )}
-                  {hover ? (
-                    <div
-                      className={
-                        "absolute bottom-0 text-gray-500 dark:text-gray-400"
-                      }
-                    >
-                      {language}
-                    </div>
-                  ) : null}
-                </div>
-              );
-            })}
+            languages.map((language, index) => (
+              <LanguageSingle
+                key={`${index} ${language}`}
+                language={language}
+              />
+            ))}
         </div>
       </div>
     </div>
