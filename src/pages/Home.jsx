@@ -18,7 +18,7 @@ const Home = () => {
   const [t] = useTranslation("translation");
   return (
     <div className="!scroll-smooth">
-      <SectionContainer className="py-44 pb-32 flex flex-col gap-y-10">
+      <SectionContainer className="md:py-44 pt-32 md:pb-32 pb-20 flex flex-col gap-y-10">
         <div className="">
           <div className="flex gap-6 mb-4">
             <img

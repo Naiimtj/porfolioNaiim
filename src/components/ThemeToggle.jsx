@@ -80,15 +80,6 @@ const ThemeSwitcher = () => {
   useEffect(() => {
     updateTheme(theme); // Update theme on initial render and theme change
 
-    const handleClickOutside = (event) => {
-      const themesMenu = document.getElementById("themes-menu");
-      if (themesMenu && !themesMenu.contains(event.target)) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
     themeToggleBtn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -98,38 +89,13 @@ const ThemeSwitcher = () => {
     const themeMenuOptions = document.querySelectorAll(".themes-menu-option");
     themeMenuOptions.forEach((element) => {
       element.addEventListener("click", (e) => {
-        const selectedTheme = e.target.innerText.toLowerCase().trim();
+        const selectedTheme = e.target.id === "dark" ? "light": "dark";
         changeTheme(selectedTheme);
       });
     });
 
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
-  const THEMES = [
-    {
-      name: "Light",
-      icon: (
-        <SunIcon
-          className={`theme-toggle-icon size-5 md:size-7 transition-all ${
-            theme === "light" && "scale-100"
-          }`}
-        />
-      ),
-    },
-    {
-      name: "Dark",
-      icon: (
-        <MoonIcon
-          className={`theme-toggle-icon size-5 md:size-6 transition-all ${
-            theme === "dark" && "scale-100"
-          }`}
-        />
-      ),
-    },
-  ];
 
   let ThemeMenuIcon;
   switch (theme) {
@@ -152,40 +118,17 @@ const ThemeSwitcher = () => {
     default:
       break;
   }
+
   return (
-    <div className="relative ml-1 mr-1 ">
+    <div className="relative ml-1 mr-1">
       <button
         id="theme-toggle-btn"
-        className="appearance-none border-none flex hover:scale-125 transition duration-300"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        className="themes-menu-option appearance-none border-none flex hover:scale-125 transition duration-300"
+        onClick={() => changeTheme(theme === "dark" ? "light": "dark")}
       >
         <span className="sr-only">{t("Select theme")}</span>
         {ThemeMenuIcon}
-      </button>
-      {isMenuOpen && (
-        <div
-          id="themes-menu"
-          className="absolute scale-80 top-8 md:right-0 text-sm p-1 md:min-w-[8rem] rounded-md border border-gray-100 bg-white/90 dark:bg-gray-900/90 dark:border-gray-500/20 shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
-        >
-          <div>
-            {THEMES.map((themeOption) => (
-              <div
-                key={themeOption.name}
-                className="themes-menu-option px-2 py-1.5 cursor-pointer hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm"
-                onClick={() => {
-                  changeTheme(themeOption.name.toLowerCase().trim());
-                  setIsMenuOpen(false);
-                }}
-              >
-                <div className="flex items-center gap-2">
-                  {themeOption.icon}
-                  {t(themeOption.name)}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      </button>      
     </div>
   );
 };

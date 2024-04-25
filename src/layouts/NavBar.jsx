@@ -73,31 +73,45 @@ const NavBar = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [screenWidth]);
-  
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 150;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="relative">
       {screenWidth ? (
         <div
-          className={`absolute md:hidden flex gap-4 mt-5 backdrop-blur-md ${
-            activeSection ? "dark:bg-black/25 bg-white/25" : ""
+          className={`absolute z-50 md:hidden flex gap-6 mt-5 backdrop-blur-md ${
+            activeSection ? "dark:bg-transparent bg-transparent md:dark:bg-black/25 md:bg-white/25" : ""
           } py-2 rounded-xl`}
         >
           <NavMenu />
         </div>
       ) : null}
-      <div className="md:fixed z-50 top-0 left-0 right-0 md:pt-4">        
+      <div className="fixed z-40 top-0 left-0 md:right-0 right-5 md:pt-4">        
         <div className="flex justify-end md:justify-center items-center">
           <div
             className={`flex items-center backdrop-blur-md ${
-              activeSection ? "dark:bg-black/25 bg-white/25" : ""
-            } md:p-2 md:mt-0 md:mx-0 mx-4 mt-5 rounded-xl`}
+              scrolled ? "dark:bg-black/25 bg-white/25" : `md:dark:bg-transparent md:bg-transparent ${menuOpen ? "dark:bg-black/25 bg-white/25" : ""}`
+            } md:p-2 md:mt-0 mt-5 rounded-xl `}
           >
             <nav className="text-right flex justify-end items-center">
-              <div className="flex flex-wrap items-center justify-end max-w-screen-xl mx-auto md:p-4 p-2">
+              <div className="flex flex-wrap items-center justify-end max-w-screen-xl mx-auto md:p-4">
                 <div className="flex items-center md:order-2 space-x-1 md:space-x-2 rtl:space-x-reverse">
                   <button
                     type="button"
-                    className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden dark:text-gray-400 "
                     onClick={() => setMenuOpen(!menuOpen)}
                   >
                     <span className="sr-only">Open main menu</span>
@@ -122,16 +136,16 @@ const NavBar = () => {
                 <div
                   className={`items-center justify-between ${
                     !menuOpen ? "hidden" : ""
-                  } w-full md:flex md:w-auto md:order-1`}
+                  } w-full md:flex md:w-auto md:order-1 pr-4 md:pr-0`}
                 >
-                  <ul className="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse items-end">
+                  <ul className="flex flex-col my-4 font-medium md:flex-row md:my-0 md:space-x-8 rtl:space-x-reverse items-end">
                     <li>
                       <Link
                         className={`${
                           activeSection === "experience"
-                            ? "dark:text-lilaPortfolio font-bold text-black"
+                            ? "dark:text-lilaPortfolio font-bold  text-lilaLightPortfolio"
                             : "dark:text-grayPortfolio text-grayLightPortfolio "
-                        } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-lilaLightPortfolio dark:hover:text-gray-300 transition duration-300 flex items-center`}
+                        } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-black dark:hover:text-gray-300 transition duration-300 flex items-center`}
                         onClick={() => scrollToSection("experience")}
                       >
                         <Briefcase className="size-6 mr-1" />
@@ -142,9 +156,9 @@ const NavBar = () => {
                       <Link
                         className={`${
                           activeSection === "projects"
-                            ? "dark:text-lilaPortfolio font-bold text-black"
-                            : "dark:text-grayPortfolio text-grayLightPortfolio"
-                        } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-lilaLightPortfolio dark:hover:text-gray-300 transition duration-300 flex items-center`}
+                            ? "dark:text-lilaPortfolio font-bold  text-lilaLightPortfolio"
+                            : "dark:text-grayPortfolio text-grayLightPortfolio "
+                        } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-black dark:hover:text-gray-300 transition duration-300 flex items-center`}
                         onClick={() => scrollToSection("projects")}
                       >
                         <Code className="size-6 mr-1" />
@@ -155,9 +169,9 @@ const NavBar = () => {
                       <Link
                         className={`${
                           activeSection === "about-me"
-                            ? "dark:text-lilaPortfolio font-bold text-black"
-                            : "dark:text-grayPortfolio text-grayLightPortfolio"
-                        } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-lilaLightPortfolio dark:hover:text-gray-300 transition duration-300 flex items-center`}
+                            ? "dark:text-lilaPortfolio font-bold  text-lilaLightPortfolio"
+                            : "dark:text-grayPortfolio text-grayLightPortfolio "
+                        } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-black dark:hover:text-gray-300 transition duration-300 flex items-center`}
                         onClick={() => scrollToSection("about-me")}
                       >
                         <ProfileCheck className="size-6 mr-1" />

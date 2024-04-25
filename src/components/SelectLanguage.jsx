@@ -95,7 +95,7 @@ const SelectLanguage = () => {
       <button
         ref={anchorRef}
         onClick={handleOpen}
-        className="hover:scale-125 transition duration-300"
+        className="md:hover:scale-125 transition duration-300"
       >
         <img
           src={CurrentLang && CurrentLang.icon}
