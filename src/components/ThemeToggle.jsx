@@ -5,8 +5,6 @@ import SunIcon from "./icons/Sun";
 import MoonIcon from "./icons/Moon";
 import SystemIcon from "./icons/System";
 
-const THEMES = ["Light", "Dark", "System"];
-
 const ThemeSwitcher = () => {
   const [t] = useTranslation("translation");
 
@@ -103,7 +101,69 @@ const ThemeSwitcher = () => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
-
+  const THEMES = [
+    {
+      name: "Light",
+      icon: (
+        <SunIcon
+          className={`theme-toggle-icon size-5 transition-all ${
+            theme === "light" && "scale-100"
+          }`}
+        />
+      ),
+    },
+    {
+      name: "Dark",
+      icon: (
+        <MoonIcon
+          className={`theme-toggle-icon size-5 transition-all ${
+            theme === "dark" && "scale-100"
+          }`}
+        />
+      ),
+    },
+    {
+      name: "System",
+      icon: (
+        <SystemIcon
+          className={`theme-toggle-icon size-5 transition-all ${
+            theme === "light" && "scale-100"
+          }`}
+        />
+      ),
+    },
+  ];
+  
+  let ThemeMenuIcon;
+  switch (theme) {
+    case "light":
+      ThemeMenuIcon = <SunIcon
+          id="light"
+          className={`theme-toggle-icon size-7 md:size-5 transition-all ${
+            theme === "light" && "scale-100"
+          }`}
+        />
+      break;
+      case "dark":
+      ThemeMenuIcon = <MoonIcon
+          id="dark"
+          className={`theme-toggle-icon size-7 md:size-5 transition-all ${
+            theme === "dark" && "scale-100"
+          }`}
+        />
+      break;
+      case "system":
+      ThemeMenuIcon = <SystemIcon
+          id="system"
+          className={`theme-toggle-icon size-7 md:size-5 transition-all ${
+            theme === "system" && "scale-100"
+          }`}
+        />
+      break;
+  
+    default:
+      break;
+  }
   return (
     <div className="relative ml-1 mr-1 ">
       <button
@@ -112,44 +172,30 @@ const ThemeSwitcher = () => {
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         <span className="sr-only">{t("Select theme")}</span>
-        <SunIcon
-          id="light"
-          className={`theme-toggle-icon size-5 transition-all ${
-            theme === "light" && "scale-100"
-          }`}
-        />
-        <MoonIcon
-          id="dark"
-          className={`theme-toggle-icon absolute size-5 transition-all ${
-            theme === "dark" && "scale-100"
-          }`}
-        />
-        <SystemIcon
-          id="system"
-          className={`theme-toggle-icon absolute size-5 transition-all ${
-            theme === "system" && "scale-100"
-          }`}
-        />
+        {ThemeMenuIcon}
       </button>
       {isMenuOpen && (
         <div
           id="themes-menu"
           className="absolute scale-80 top-8 md:right-0 text-sm p-1 md:min-w-[8rem] rounded-md border border-gray-100 bg-white/90 dark:bg-gray-900/90 dark:border-gray-500/20 shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
         >
-          <ul>
+          <div>
             {THEMES.map((themeOption) => (
-              <li
-                key={themeOption}
+              <div
+                key={themeOption.name}
                 className="themes-menu-option px-2 py-1.5 cursor-pointer hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm"
                 onClick={() => {
-                  changeTheme(themeOption.toLowerCase().trim());
+                  changeTheme(themeOption.name.toLowerCase().trim());
                   setIsMenuOpen(false);
                 }}
               >
-                {t(themeOption)}
-              </li>
+                <div className="flex items-center gap-2">
+                  {themeOption.icon}
+                  {t(themeOption.name)}
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       )}
     </div>

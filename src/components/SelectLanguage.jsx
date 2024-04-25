@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
-import { FlagES, FlagUSA } from "../components/icons/flagsLang";
+import { FlagES, FlagUSA } from "./icons/flagsLang";
 
 const LANGS = [
   {
@@ -16,7 +16,7 @@ const LANGS = [
   },
 ];
 
-const NavMenu = () => {
+const SelectLanguage = () => {
   const [open, setOpen] = useState(false);
   const menuButtonRef = useRef(null);
   // Add an event handler to close the menu when clicked out of it
@@ -100,6 +100,7 @@ const NavMenu = () => {
         <img
           src={CurrentLang && CurrentLang.icon}
           alt={`${t("Current language")} ${CurrentLang.label}`}
+          className="w-9 md:w-auto"
         />
       </button>
       <div className="ml-2 flex items-center md:ml-2">
@@ -108,7 +109,7 @@ const NavMenu = () => {
           <>
             <div>
               <Menu.Button
-                className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none hover:scale-105"
+                className="relative flex max-w-xs  items-center rounded-full bg-gray-800 text-sm focus:outline-none hover:scale-105"
                 onClick={() => setOpen(!open)}
               >
                 <span className="absolute -inset-1.5" />
@@ -127,7 +128,7 @@ const NavMenu = () => {
             >
               <Menu.Items
                 ref={menuButtonRef}
-                className="absolute right-0 z-10 mt-1 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                className="absolute left-0 md:left-auto md:right-0 z-10 mt-1 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
               >
                 {LANGS.map((item) => (
                   <Menu.Item key={item.label}>
@@ -154,4 +155,4 @@ const NavMenu = () => {
   );
 };
 
-export default NavMenu;
+export default SelectLanguage;

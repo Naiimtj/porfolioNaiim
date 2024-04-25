@@ -3,8 +3,7 @@ import { useTranslation } from "react-i18next";
 import Briefcase from "../components/icons/Briefcase";
 import Code from "../components/icons/Code";
 import ProfileCheck from "../components/icons/ProfileCheck";
-import NavMenu from "./NavMenu";
-import ThemeSwitcher from "../components/ThemeToggle";
+import NavMenu from "../components/NavMenu";
 import { useEffect, useState } from "react";
 
 function scrollToSection(id) {
@@ -56,20 +55,36 @@ const NavBar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const currentScreenWidth = window.innerWidth;
+  const [screenWidth, setScreenWidth] = useState(currentScreenWidth < 767);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 767 && !screenWidth) {
+        setScreenWidth(true);
+      } else if (window.innerWidth >= 767 && screenWidth) {
+        setScreenWidth(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [screenWidth]);
   return (
     <div className="relative">
       <div className="fixed z-50 top-0 left-0 right-0 md:pt-4">
-        <div
-          className={`absolute md:hidden flex gap-4 mx-4 pt-4 mt-5 backdrop-blur-md ${
-            activeSection ? "dark:bg-black/25 bg-white/25" : ""
-          } p-2 rounded-xl`}
-        >
-          <ThemeSwitcher />
-          <div className="md:ml-10 md:mt-2 z-50">
+        {screenWidth ? (
+          <div
+            className={`absolute md:hidden flex gap-4 mx-4 pt-4 mt-5 backdrop-blur-md ${
+              activeSection ? "dark:bg-black/25 bg-white/25" : ""
+            } p-2 rounded-xl`}
+          >
             <NavMenu />
           </div>
-        </div>
+        ) : null}
         <div className="flex justify-end md:justify-center items-center">
           <div
             className={`flex items-center backdrop-blur-md ${
@@ -152,12 +167,11 @@ const NavBar = () => {
                 </div>
               </div>
             </nav>
-            <div className="md:flex items-center gap-8 hidden">
-              <ThemeSwitcher />
-              <div className="pr-4 mt-2 z-50">
+            {!screenWidth ? (
+              <div className="md:flex items-center gap-8 hidden">
                 <NavMenu />
               </div>
-            </div>
+            ) : null}
           </div>
         </div>
       </div>
