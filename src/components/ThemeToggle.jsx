@@ -3,21 +3,28 @@ import { useTranslation } from "react-i18next";
 // icons
 import SunIcon from "./icons/Sun";
 import MoonIcon from "./icons/Moon";
-import SystemIcon from "./icons/System";
 
 const ThemeSwitcher = () => {
   const [t] = useTranslation("translation");
 
   const getInitialTheme = () => {
     if (typeof localStorage !== "undefined") {
-      return localStorage.getItem("theme") || "system";
+      if(localStorage.getItem("theme")){
+        return localStorage.getItem("theme")
+      }else {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return localStorage.setItem("theme", "dark");
+        } else {
+          return localStorage.setItem("theme", "light");
+        }
+      }
     }
-
     return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light";
   };
-  const [theme, setTheme] = useState(getInitialTheme());
+  const initialTheme = getInitialTheme();
+  const [theme, setTheme] = useState(initialTheme);
 
   useEffect(() => {
     const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
@@ -106,7 +113,7 @@ const ThemeSwitcher = () => {
       name: "Light",
       icon: (
         <SunIcon
-          className={`theme-toggle-icon size-5 transition-all ${
+          className={`theme-toggle-icon size-5 md:size-7 transition-all ${
             theme === "light" && "scale-100"
           }`}
         />
@@ -116,51 +123,32 @@ const ThemeSwitcher = () => {
       name: "Dark",
       icon: (
         <MoonIcon
-          className={`theme-toggle-icon size-5 transition-all ${
+          className={`theme-toggle-icon size-5 md:size-6 transition-all ${
             theme === "dark" && "scale-100"
-          }`}
-        />
-      ),
-    },
-    {
-      name: "System",
-      icon: (
-        <SystemIcon
-          className={`theme-toggle-icon size-5 transition-all ${
-            theme === "light" && "scale-100"
           }`}
         />
       ),
     },
   ];
-  
+
   let ThemeMenuIcon;
   switch (theme) {
     case "light":
-      ThemeMenuIcon = <SunIcon
+      ThemeMenuIcon = (
+        <SunIcon
           id="light"
-          className={`theme-toggle-icon size-7 md:size-5 transition-all ${
-            theme === "light" && "scale-100"
-          }`}
+          className="theme-toggle-icon size-7 md:size-5 transition-all scale-100"
         />
+      );
       break;
-      case "dark":
-      ThemeMenuIcon = <MoonIcon
+    case "dark":
+      ThemeMenuIcon = (
+        <MoonIcon
           id="dark"
-          className={`theme-toggle-icon size-7 md:size-5 transition-all ${
-            theme === "dark" && "scale-100"
-          }`}
+          className="theme-toggle-icon size-7 md:size-5 transition-all scale-100"
         />
+      );
       break;
-      case "system":
-      ThemeMenuIcon = <SystemIcon
-          id="system"
-          className={`theme-toggle-icon size-7 md:size-5 transition-all ${
-            theme === "system" && "scale-100"
-          }`}
-        />
-      break;
-  
     default:
       break;
   }

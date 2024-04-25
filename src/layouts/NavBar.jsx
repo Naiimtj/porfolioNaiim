@@ -73,18 +73,19 @@ const NavBar = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [screenWidth]);
+  
   return (
     <div className="relative">
-      <div className="fixed z-50 top-0 left-0 right-0 md:pt-4">
-        {screenWidth ? (
-          <div
-            className={`absolute md:hidden flex gap-4 mx-4 pt-4 mt-5 backdrop-blur-md ${
-              activeSection ? "dark:bg-black/25 bg-white/25" : ""
-            } p-2 rounded-xl`}
-          >
-            <NavMenu />
-          </div>
-        ) : null}
+      {screenWidth ? (
+        <div
+          className={`absolute md:hidden flex gap-4 mt-5 backdrop-blur-md ${
+            activeSection ? "dark:bg-black/25 bg-white/25" : ""
+          } py-2 rounded-xl`}
+        >
+          <NavMenu />
+        </div>
+      ) : null}
+      <div className="md:fixed z-50 top-0 left-0 right-0 md:pt-4">        
         <div className="flex justify-end md:justify-center items-center">
           <div
             className={`flex items-center backdrop-blur-md ${
