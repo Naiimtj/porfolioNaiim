@@ -32,6 +32,7 @@ const ProgramSingle = ({ program, index, screenWidth }) => {
             className={`size-9 hover:text-gray-500 dark:hover:text-gray-400 mb-6`}
             onMouseEnter={() => (!screenWidth ? setHover(index + 1) : null)}
             onMouseLeave={() => (!screenWidth ? setHover(null) : null)}
+            alt={program}
           />
         )}
         {hover ? (

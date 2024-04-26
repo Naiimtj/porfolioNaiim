@@ -123,13 +123,13 @@ const ImgProject = ({
           </div>
           <div className="flex items-end justify-start mt-4 gap-x-4">
             {!expandedImage && !someExpandedImage && github && (
-              <SocialPill url={github}>
+              <SocialPill url={github} txtAlt={t("Button to my GitHub")}>
                 <GitHub className="size-6" />
                 GitHub
               </SocialPill>
             )}
             {!expandedImage && !someExpandedImage && link && (
-              <SocialPill url={link}>
+              <SocialPill url={link} txtAlt={t("Button Preview")}>
                 <LinkIcon className="size-6" />
                 {t("Preview")}
               </SocialPill>

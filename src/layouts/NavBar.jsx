@@ -5,6 +5,7 @@ import Code from "../components/icons/Code";
 import ProfileCheck from "../components/icons/ProfileCheck";
 import NavMenu from "../components/NavMenu";
 import { useEffect, useRef, useState } from "react";
+import MobileMenu from "../components/icons/MobileMenu";
 
 function scrollToSection(id) {
   const element = document.getElementById(id);
@@ -134,31 +135,17 @@ const NavBar = () => {
                   }`
             } md:p-2 md:mt-0 mt-5 rounded-xl `}
           >
-            <nav className="text-right flex justify-end items-center">
+            <nav className="text-right flex justify-end items-center" ref={screenWidth && menuOpen ? menuButtonRef : null}>
               <div className="flex flex-wrap items-center justify-end max-w-screen-xl mx-auto md:p-4">
                 <div className="flex items-center md:order-2 space-x-1 md:space-x-2 rtl:space-x-reverse">
                   <button
                     type="button"
                     className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden dark:text-gray-400 "
-                    onClick={() => setMenuOpen(!menuOpen)}
-                    ref={screenWidth && menuOpen ? menuButtonRef : null}
+                    onClick={() => setMenuOpen(!menuOpen)}                    
+                    alt={menuOpen ? t("Close main menu") :t("Open main menu")}
                   >
-                    <span className="sr-only">Open main menu</span>
-                    <svg
-                      className="w-5 h-5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 17 14"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M1 1h15M1 7h15M1 13h15"
-                      />
-                    </svg>
+                    <span className="sr-only">{menuOpen ? t("Close main menu") :t("Open main menu")}</span>
+                    <MobileMenu />
                   </button>
                 </div>
                 {/* // - MENU */}
@@ -209,15 +196,15 @@ const NavBar = () => {
                     </li>
                   </ul>
                   {window.scrollY > 70 ? (
-                    <div className="md:hidden flex gap-6 pb-4 pl-6">
-                      <NavMenu />
+                    <div className="md:hidden flex justify-end gap-6 pb-4">
+                      <NavMenu isMobileMenu/>
                     </div>
                   ) : null}
                 </div>
               </div>
             </nav>
             {!screenWidth ? (
-              <div className="md:flex items-center gap-8 hidden">
+              <div className="flex items-center gap-8 pr-4">
                 <NavMenu />
               </div>
             ) : null}

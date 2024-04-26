@@ -125,6 +125,7 @@ const ThemeSwitcher = () => {
         id="theme-toggle-btn"
         className="themes-menu-option appearance-none border-none flex hover:scale-125 transition duration-300"
         onClick={() => changeTheme(theme === "dark" ? "light": "dark")}
+        alt={t('Change theme')}
       >
         <span className="sr-only">{t("Select theme")}</span>
         {ThemeMenuIcon}
