@@ -90,6 +90,19 @@ const SelectLanguage = () => {
       }
     }
   };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY) {
+        setOpen(false); // Here the menu closes when you scroll down
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div>
       <button

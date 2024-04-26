@@ -4,7 +4,7 @@ import Briefcase from "../components/icons/Briefcase";
 import Code from "../components/icons/Code";
 import ProfileCheck from "../components/icons/ProfileCheck";
 import NavMenu from "../components/NavMenu";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function scrollToSection(id) {
   const element = document.getElementById(id);
@@ -77,8 +77,12 @@ const NavBar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 150;
+      const isScrolled =
+        currentScreenWidth < 767 ? window.scrollY > 0 : window.scrollY > 70;
       setScrolled(isScrolled);
+      if (window.scrollY) {
+        setMenuOpen(false); // Here the menu closes when you scroll down
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -86,24 +90,48 @@ const NavBar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  const menuButtonRef = useRef(null);
+  // Add an event handler to close the menu when clicked out of it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        menuButtonRef.current &&
+        !menuButtonRef.current.contains(event.target)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+    // Add the event handler to the document
+    document.addEventListener("click", handleClickOutside);
+    // Clearing the event handler when unmounting the component
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [menuButtonRef]);
   return (
     <div className="relative">
       {screenWidth ? (
         <div
           className={`absolute z-50 md:hidden flex gap-6 mt-5 backdrop-blur-md ${
-            activeSection ? "dark:bg-transparent bg-transparent md:dark:bg-black/25 md:bg-white/25" : ""
+            activeSection
+              ? "dark:bg-transparent bg-transparent md:dark:bg-black/25 md:bg-white/25"
+              : ""
           } py-2 rounded-xl`}
         >
           <NavMenu />
         </div>
       ) : null}
-      <div className="fixed z-40 top-0 left-0 md:right-0 right-5 md:pt-4">        
+      <div className="fixed z-40 top-0 left-0 md:right-0 right-5 md:pt-4">
         <div className="flex justify-end md:justify-center items-center">
           <div
             className={`flex items-center backdrop-blur-md ${
-              scrolled ? "dark:bg-black/25 bg-white/25" : `md:dark:bg-transparent md:bg-transparent ${menuOpen ? "dark:bg-black/25 bg-white/25" : ""}`
+              scrolled
+                ? "dark:bg-black/25 bg-white/25"
+                : `md:dark:bg-transparent md:bg-transparent ${
+                    menuOpen ? "dark:bg-black/25 bg-white/25" : ""
+                  }`
             } md:p-2 md:mt-0 mt-5 rounded-xl `}
           >
             <nav className="text-right flex justify-end items-center">
@@ -113,6 +141,7 @@ const NavBar = () => {
                     type="button"
                     className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden dark:text-gray-400 "
                     onClick={() => setMenuOpen(!menuOpen)}
+                    ref={screenWidth && menuOpen ? menuButtonRef : null}
                   >
                     <span className="sr-only">Open main menu</span>
                     <svg
@@ -143,9 +172,9 @@ const NavBar = () => {
                       <Link
                         className={`${
                           activeSection === "experience"
-                            ? "dark:text-lilaPortfolio font-bold  text-lilaLightPortfolio"
+                            ? "dark:text-lilaPortfolio font-bold text-lilaLightPortfolio"
                             : "dark:text-grayPortfolio text-grayLightPortfolio "
-                        } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-black dark:hover:text-gray-300 transition duration-300 flex items-center`}
+                        } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-black dark:hover:text-lilaPortfolio transition duration-300 flex items-center`}
                         onClick={() => scrollToSection("experience")}
                       >
                         <Briefcase className="size-6 mr-1" />
@@ -156,9 +185,9 @@ const NavBar = () => {
                       <Link
                         className={`${
                           activeSection === "projects"
-                            ? "dark:text-lilaPortfolio font-bold  text-lilaLightPortfolio"
+                            ? "dark:text-lilaPortfolio font-bold text-lilaLightPortfolio"
                             : "dark:text-grayPortfolio text-grayLightPortfolio "
-                        } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-black dark:hover:text-gray-300 transition duration-300 flex items-center`}
+                        } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-black dark:hover:text-lilaPortfolio transition duration-300 flex items-center`}
                         onClick={() => scrollToSection("projects")}
                       >
                         <Code className="size-6 mr-1" />
@@ -169,9 +198,9 @@ const NavBar = () => {
                       <Link
                         className={`${
                           activeSection === "about-me"
-                            ? "dark:text-lilaPortfolio font-bold  text-lilaLightPortfolio"
+                            ? "dark:text-lilaPortfolio font-bold text-lilaLightPortfolio"
                             : "dark:text-grayPortfolio text-grayLightPortfolio "
-                        } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-black dark:hover:text-gray-300 transition duration-300 flex items-center`}
+                        } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-black dark:hover:text-lilaPortfolio transition duration-300 flex items-center`}
                         onClick={() => scrollToSection("about-me")}
                       >
                         <ProfileCheck className="size-6 mr-1" />
@@ -179,6 +208,11 @@ const NavBar = () => {
                       </Link>
                     </li>
                   </ul>
+                  {window.scrollY > 70 ? (
+                    <div className="md:hidden flex gap-6 pb-4 pl-6">
+                      <NavMenu />
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </nav>

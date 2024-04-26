@@ -13,7 +13,7 @@ const ShowMore = ({ moreInfo }) => {
         className="flex text-lg font-medium "
         onClick={() => setShowMore(!showMore)}
       >
-        <div className="flex items-center text-violet-500 dark:text-lilaPortfolio dark:hover:text-white hover:text-violet-700 fill-violet-500 dark:fill-lilaPortfolio dark:hover:fill-white hover:fill-violet-700 transition duration-300">
+        <div className="flex items-center text-violet-500 dark:text-lilaPortfolio md:dark:hover:text-white md:hover:text-violet-700 fill-violet-500 dark:fill-lilaPortfolio md:dark:hover:fill-white md:hover:fill-violet-700 transition duration-300">
           {t("More")}...
           {!showMore ? <ArrowDown /> : <ArrowUp />}
         </div>
