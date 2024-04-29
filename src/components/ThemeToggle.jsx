@@ -4,17 +4,40 @@ import { Moon, Sun } from "../assets/icons";
 
 const ThemeSwitcher = () => {
   const [t] = useTranslation("translation");
+
+  const getInitialTheme = () => {
+    if (typeof localStorage !== "undefined") {
+      if (localStorage.getItem("theme")) {
+        return localStorage.getItem("theme");
+      } else {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return localStorage.setItem("theme", "dark");
+        } else {
+          return localStorage.setItem("theme", "light");
+        }
+      }
+    }
+    return "dark";
+  };
+  
   const [theme, setTheme] = useState(getInitialTheme());
-
   useEffect(() => {
-    updateTheme(theme);
+    const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
     updateScrollbarStyles();
-  }, [theme]);
 
-  const changeTheme = () => {
-    const selectedTheme = theme === "dark" ? "light" : "dark";
+    const handleThemeChange = () => setTheme(getInitialTheme());
+
+    matchMedia.addEventListener("change", handleThemeChange);
+
+    return () => matchMedia.removeEventListener("change", handleThemeChange);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const changeTheme = (selectedTheme) => {
     localStorage.setItem("theme", selectedTheme);
     setTheme(selectedTheme);
+    updateTheme(selectedTheme);
+    updateScrollbarStyles();
   };
 
   const updateTheme = (themePreference) => {
@@ -29,9 +52,8 @@ const ThemeSwitcher = () => {
         element.id === themePreference ? "scale(1)" : "scale(0)";
     });
   };
-
   const updateScrollbarStyles = () => {
-    const isDarkMode = theme === "dark";
+    const isDarkMode = document.documentElement.classList.contains("dark");
     const scrollbarTrackColor = isDarkMode ? "rgb(2 6 23)" : "rgb(249 250 251)";
     const scrollbarThumbColor = isDarkMode
       ? "linear-gradient(rgb(2 6 23), rgb(87, 41, 167), rgb(2 6 23))"
@@ -46,26 +68,47 @@ const ThemeSwitcher = () => {
       scrollbarThumbColor
     );
   };
+  useEffect(() => {
+    updateTheme(theme); // Update theme on initial render and theme change
+  
+    const themeToggleBtn = document.getElementById("theme-toggle-btn");
+    themeToggleBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const selectedTheme = theme === "dark" ? "light" : "dark";
+      changeTheme(selectedTheme);
+    });
+  
+    const themeMenuOptions = document.querySelectorAll(".themes-menu-option");
+    themeMenuOptions.forEach((element) => {
+      element.addEventListener("click", (e) => {
+        const selectedTheme = e.target.id === "dark" ? "light" : "dark";
+        changeTheme(selectedTheme);
+      });
+    });
+  
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const getSystemColorScheme = () => {
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      return "dark";
-    } else {
-      return "light";
-    }
-  };
-
-  function getInitialTheme() {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    } else {
-      const systemTheme = getSystemColorScheme();
-      localStorage.setItem("theme", systemTheme);
-      return systemTheme;
-    }
+  let ThemeMenuIcon;
+  switch (theme) {
+    case "light":
+      ThemeMenuIcon = (
+        <Sun
+          id="light"
+          className="theme-toggle-icon size-7 md:size-5 transition-all scale-100"
+        />
+      );
+      break;
+    case "dark":
+      ThemeMenuIcon = (
+        <Moon
+          id="dark"
+          className="theme-toggle-icon size-7 md:size-5 transition-all scale-100"
+        />
+      );
+      break;
+    default:
+      break;
   }
 
   return (
@@ -73,21 +116,13 @@ const ThemeSwitcher = () => {
       <button
         id="theme-toggle-btn"
         className="themes-menu-option appearance-none border-none flex hover:scale-125 transition duration-300"
-        onClick={changeTheme}
-        alt={`${t("Change theme to")} ${theme === "dark" ? t("light") : t("dark")}`}
+        onClick={() => changeTheme(theme === "dark" ? "light" : "dark")}
+        alt={`${t("Change theme to")} ${
+          theme === "dark" ? t("light") : t("dark")
+        }`}
       >
         <span className="sr-only">{t("Select theme")}</span>
-        {theme === "dark" ? (
-          <Moon
-            id="dark"
-            className="theme-toggle-icon size-7 md:size-5 transition-all scale-100"
-          />
-        ) : (
-          <Sun
-            id="light"
-            className="theme-toggle-icon size-7 md:size-5 transition-all scale-100"
-          />
-        )}
+        {ThemeMenuIcon}
       </button>
     </div>
   );
