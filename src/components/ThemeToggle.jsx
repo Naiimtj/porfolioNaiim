@@ -39,9 +39,9 @@ const ThemeSwitcher = () => {
       element.style.transform =
         element.id === themePreference ? "scale(1)" : "scale(0)";
     });
-  };
+  };  
   const updateScrollbarStyles = () => {
-    const isDarkMode = document.documentElement.classList.contains("dark");
+    const isDarkMode = document.documentElement.classList.contains("dark") || theme === "dark";
     const scrollbarTrackColor = isDarkMode ? "rgb(2 6 23)" : "rgb(249 250 251)";
     const scrollbarThumbColor = isDarkMode
       ? "linear-gradient(rgb(2 6 23), rgb(87, 41, 167), rgb(2 6 23))"
