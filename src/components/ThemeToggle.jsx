@@ -11,7 +11,6 @@ const ThemeSwitcher = () => {
   const [theme, setTheme] = useState(initTheme);
   useEffect(() => {
     const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
-    updateScrollbarStyles();
 
     const handleThemeChange = () => setTheme(initTheme);
 
@@ -25,7 +24,6 @@ const ThemeSwitcher = () => {
     localStorage.setItem("theme", selectedTheme);
     setTheme(selectedTheme);
     updateTheme(selectedTheme);
-    updateScrollbarStyles();
   };
 
   const updateTheme = (themePreference) => {
@@ -39,23 +37,26 @@ const ThemeSwitcher = () => {
       element.style.transform =
         element.id === themePreference ? "scale(1)" : "scale(0)";
     });
-  };  
-  const updateScrollbarStyles = () => {
-    const isDarkMode = document.documentElement.classList.contains("dark") || theme === "dark";
-    const scrollbarTrackColor = isDarkMode ? "rgb(2 6 23)" : "rgb(249 250 251)";
-    const scrollbarThumbColor = isDarkMode
-      ? "linear-gradient(rgb(2 6 23), rgb(87, 41, 167), rgb(2 6 23))"
-      : "linear-gradient(rgb(249 250 251), rgb(87, 41, 167), rgb(249 250 251))";
-
-    document.documentElement.style.setProperty(
-      "--scrollbar-track-color",
-      scrollbarTrackColor
-    );
-    document.documentElement.style.setProperty(
-      "--scrollbar-thumb-color",
-      scrollbarThumbColor
-    );
   };
+  useEffect(() => {
+      const isDarkMode =
+        document.documentElement.classList.contains("dark") || theme === "dark";
+      const scrollbarTrackColor = isDarkMode
+        ? "rgb(2 6 23)"
+        : "rgb(249 250 251)";
+      const scrollbarThumbColor = isDarkMode
+        ? "linear-gradient(rgb(2 6 23), rgb(87, 41, 167), rgb(2 6 23))"
+        : "linear-gradient(rgb(249 250 251), rgb(87, 41, 167), rgb(249 250 251))";
+
+      document.documentElement.style.setProperty(
+        "--scrollbar-track-color",
+        scrollbarTrackColor
+      );
+      document.documentElement.style.setProperty(
+        "--scrollbar-thumb-color",
+        scrollbarThumbColor
+      );
+  }, [theme]);
   useEffect(() => {
     updateTheme(theme); // Update theme on initial render and theme change
 
