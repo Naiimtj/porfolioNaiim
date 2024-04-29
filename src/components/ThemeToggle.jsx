@@ -10,11 +10,7 @@ const ThemeSwitcher = () => {
       if (localStorage.getItem("theme")) {
         return localStorage.getItem("theme");
       } else {
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
           return localStorage.setItem("theme", "dark");
-        } else {
-          return localStorage.setItem("theme", "light");
-        }
       }
     }
     return window.matchMedia("(prefers-color-scheme: dark)").matches
