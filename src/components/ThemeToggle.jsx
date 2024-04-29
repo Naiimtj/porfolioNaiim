@@ -5,6 +5,17 @@ import { Moon, Sun } from "../assets/icons";
 const ThemeSwitcher = () => {
   const [t] = useTranslation("translation");
 
+  const getSystemColorScheme = () => {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      return "dark";
+    } else {
+      return "light";
+    }
+  };
+
   const getInitialTheme = () => {
     if (typeof localStorage !== "undefined") {
       if (localStorage.getItem("theme")) {
@@ -17,13 +28,10 @@ const ThemeSwitcher = () => {
         }
       }
     }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    return getSystemColorScheme();
   };
   const initialTheme = getInitialTheme();
-  const [theme, setTheme] = useState(initialTheme || "dark");
-console.log(theme);
+  const [theme, setTheme] = useState(initialTheme);
   useEffect(() => {
     const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
     updateScrollbarStyles();
@@ -45,10 +53,7 @@ console.log(theme);
   };
 
   const updateTheme = (themePreference) => {
-  console.log(themePreference);
-  const isDark =
-      themePreference === "dark" ||      
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = themePreference === "dark";
     document.documentElement.classList.toggle("dark", isDark);
     updateIcon(themePreference);
   };
