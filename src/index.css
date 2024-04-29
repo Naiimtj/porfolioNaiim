@@ -7,10 +7,10 @@
 }
 
 ::-webkit-scrollbar-track{
-    background: var(--scrollbar-track-color, rgb(249 250 251));
+    background: var(--scrollbar-track-color, rgb(2 6 23));
 }
 
 ::-webkit-scrollbar-thumb{
-    background: var(--scrollbar-thumb-color, linear-gradient(rgb(249 250 251), rgb(87, 41, 167), rgb(249 250 251)));
+    background: var(--scrollbar-thumb-color, linear-gradient(rgb(2 6 23), rgb(87, 41, 167), rgb(2 6 23)));
     border-radius: 100vw;
 }
