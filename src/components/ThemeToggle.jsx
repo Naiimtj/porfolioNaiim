@@ -10,7 +10,11 @@ const ThemeSwitcher = () => {
       if (localStorage.getItem("theme")) {
         return localStorage.getItem("theme");
       } else {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
           return localStorage.setItem("theme", "dark");
+        } else {
+          return localStorage.setItem("theme", "light");
+        }
       }
     }
     return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -18,8 +22,8 @@ const ThemeSwitcher = () => {
       : "light";
   };
   const initialTheme = getInitialTheme();
-  const [theme, setTheme] = useState(initialTheme);
-
+  const [theme, setTheme] = useState(initialTheme || "dark");
+console.log(theme);
   useEffect(() => {
     const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
     updateScrollbarStyles();
@@ -41,10 +45,10 @@ const ThemeSwitcher = () => {
   };
 
   const updateTheme = (themePreference) => {
-    const isDark =
-      themePreference === "dark" ||
-      (themePreference === "system" &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches);
+  console.log(themePreference);
+  const isDark =
+      themePreference === "dark" ||      
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
     document.documentElement.classList.toggle("dark", isDark);
     updateIcon(themePreference);
   };
