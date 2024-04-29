@@ -41,9 +41,8 @@ const ThemeSwitcher = () => {
     matchMedia.addEventListener("change", handleThemeChange);
 
     return () => matchMedia.removeEventListener("change", handleThemeChange);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const changeTheme = (selectedTheme) => {
     localStorage.setItem("theme", selectedTheme);
@@ -82,13 +81,14 @@ const ThemeSwitcher = () => {
   };
   useEffect(() => {
     updateTheme(theme); // Update theme on initial render and theme change
-
+  
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
     themeToggleBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      setIsMenuOpen(!isMenuOpen);
+      const selectedTheme = theme === "dark" ? "light" : "dark";
+      changeTheme(selectedTheme);
     });
-
+  
     const themeMenuOptions = document.querySelectorAll(".themes-menu-option");
     themeMenuOptions.forEach((element) => {
       element.addEventListener("click", (e) => {
@@ -96,9 +96,9 @@ const ThemeSwitcher = () => {
         changeTheme(selectedTheme);
       });
     });
-
+  
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [theme]);
+  }, []);
 
   let ThemeMenuIcon;
   switch (theme) {
