@@ -4,28 +4,16 @@ import { Moon, Sun } from "../assets/icons";
 
 const ThemeSwitcher = () => {
   const [t] = useTranslation("translation");
-
-  const getInitialTheme = () => {
-    if (typeof localStorage !== "undefined") {
-      if (localStorage.getItem("theme")) {
-        return localStorage.getItem("theme");
-      } else {
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return localStorage.setItem("theme", "dark");
-        } else {
-          return localStorage.setItem("theme", "light");
-        }
-      }
-    }
-    return "dark";
-  };
-  
-  const [theme, setTheme] = useState(getInitialTheme());
+  const initTheme =
+    typeof localStorage !== "undefined" && localStorage.getItem("theme")
+      ? localStorage.getItem("theme")
+      : "dark";
+  const [theme, setTheme] = useState(initTheme);
   useEffect(() => {
     const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
     updateScrollbarStyles();
 
-    const handleThemeChange = () => setTheme(getInitialTheme());
+    const handleThemeChange = () => setTheme(initTheme);
 
     matchMedia.addEventListener("change", handleThemeChange);
 
@@ -70,14 +58,14 @@ const ThemeSwitcher = () => {
   };
   useEffect(() => {
     updateTheme(theme); // Update theme on initial render and theme change
-  
+
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
     themeToggleBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       const selectedTheme = theme === "dark" ? "light" : "dark";
       changeTheme(selectedTheme);
     });
-  
+
     const themeMenuOptions = document.querySelectorAll(".themes-menu-option");
     themeMenuOptions.forEach((element) => {
       element.addEventListener("click", (e) => {
@@ -85,7 +73,7 @@ const ThemeSwitcher = () => {
         changeTheme(selectedTheme);
       });
     });
-  
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
