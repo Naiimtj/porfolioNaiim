@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
-import PropTypes from "prop-types";
 import { Menu, Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 import { FlagES, FlagUSA } from "./icons/flagsLang";
 
 const LANGS = [
@@ -17,7 +17,7 @@ const LANGS = [
   },
 ];
 
-const SelectLanguage = ({isMobileMenu}) => {
+const SelectLanguage = ({ isMobileMenu }) => {
   const [open, setOpen] = useState(false);
   const menuButtonRef = useRef(null);
   // Add an event handler to close the menu when clicked out of it
@@ -110,7 +110,9 @@ const SelectLanguage = ({isMobileMenu}) => {
         ref={anchorRef}
         onClick={handleOpen}
         className="md:hover:scale-125 transition duration-300"
-        alt={`${t("Button to change the current language to")} ${CurrentLang.label}`}
+        alt={`${t("Button to change the current language to")} ${
+          CurrentLang.label
+        }`}
       >
         <img
           src={CurrentLang && CurrentLang.icon}
@@ -143,7 +145,9 @@ const SelectLanguage = ({isMobileMenu}) => {
             >
               <Menu.Items
                 ref={menuButtonRef}
-                className={`absolute ${isMobileMenu ? "right-0" : "left-0"} md:left-auto md:right-0 z-10 mt-1 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+                className={`absolute ${
+                  isMobileMenu ? "right-0" : "left-0"
+                } md:left-auto md:right-0 z-10 mt-1 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
               >
                 {LANGS.map((item) => (
                   <Menu.Item key={item.label}>
@@ -151,7 +155,9 @@ const SelectLanguage = ({isMobileMenu}) => {
                       <button
                         onClick={() => handleChangeLanguage(item.value)}
                         className="hover:bg-gray-100 hover:rounded-md px-4 py-2 text-base text-gray-700 cursor-pointer w-full text-right flex items-center gap-2"
-                        alt={`${t("Button to change the language to")} ${item.label}`}
+                        alt={`${t("Button to change the language to")} ${
+                          item.label
+                        }`}
                       >
                         <img
                           src={item.icon}

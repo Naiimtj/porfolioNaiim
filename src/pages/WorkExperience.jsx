@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
+import { Briefcase } from "../components/icons";
 import Experience from "../components/Experience/Experience";
-import Briefcase from "../components/icons/Briefcase";
 import SectionContainer from "../components/SectionContainer";
 
 const WorkExperience = () => {

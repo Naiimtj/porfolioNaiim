@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-// icons
-import SunIcon from "./icons/Sun";
-import MoonIcon from "./icons/Moon";
+import { Moon, Sun } from "./icons";
 
 const ThemeSwitcher = () => {
   const [t] = useTranslation("translation");
@@ -10,7 +8,7 @@ const ThemeSwitcher = () => {
   const getInitialTheme = () => {
     if (typeof localStorage !== "undefined") {
       if(localStorage.getItem("theme")){
-        return localStorage.getItem("theme")
+      return localStorage.getItem("theme")
       }else {
         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
           return localStorage.setItem("theme", "dark");
@@ -101,7 +99,7 @@ const ThemeSwitcher = () => {
   switch (theme) {
     case "light":
       ThemeMenuIcon = (
-        <SunIcon
+        <Sun
           id="light"
           className="theme-toggle-icon size-7 md:size-5 transition-all scale-100"
         />
@@ -109,7 +107,7 @@ const ThemeSwitcher = () => {
       break;
     case "dark":
       ThemeMenuIcon = (
-        <MoonIcon
+        <Moon
           id="dark"
           className="theme-toggle-icon size-7 md:size-5 transition-all scale-100"
         />
@@ -125,7 +123,7 @@ const ThemeSwitcher = () => {
         id="theme-toggle-btn"
         className="themes-menu-option appearance-none border-none flex hover:scale-125 transition duration-300"
         onClick={() => changeTheme(theme === "dark" ? "light": "dark")}
-        alt={t('Change theme')}
+        alt={`${t('Change theme to')} ${theme === "dark" ? t("light"): t("dark")}`}
       >
         <span className="sr-only">{t("Select theme")}</span>
         {ThemeMenuIcon}

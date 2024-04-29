@@ -1,8 +1,8 @@
 import { useState } from "react";
-import ListProjects from "../data/projects.json";
-import ImgProject from "./ImgProject";
+import ListProjects from "../../data/projects.json";
+import ProjectItem from "./ProjectItem";
 
-const ProjectItem = () => {
+const Project = () => {
   const [someExpandedImage, setSomeExpandedImage] = useState(false);
   const handleImageExpand = (expanded) => {
     setSomeExpandedImage(expanded ? true : false);
@@ -15,7 +15,7 @@ const ProjectItem = () => {
           ({ image, title, description, tags, link, github }) => {
             return (
               <div key={`Project ${title}`}>
-                <ImgProject
+                <ProjectItem
                   image={image}
                   title={title}
                   description={description}
@@ -34,4 +34,4 @@ const ProjectItem = () => {
   );
 };
 
-export default ProjectItem;
+export default Project;

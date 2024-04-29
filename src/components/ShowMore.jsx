@@ -1,8 +1,7 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import ArrowDown from "./icons/ArrowDown";
-import ArrowUp from "./icons/ArrowUp";
+import PropTypes from "prop-types";
+import { ArrowDown, ArrowUp } from "./icons";
 
 const ShowMore = ({ moreInfo }) => {
   const [t] = useTranslation("translation");

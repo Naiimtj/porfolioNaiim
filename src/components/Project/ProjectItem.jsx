@@ -1,13 +1,12 @@
-import PropTypes from "prop-types";
-import SocialPill from "./SocialPill";
-import { GitHub } from "./icons/SocialMedia";
-import LanguageSingle from "./LanguageSingle";
-import Close from "./icons/Close";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import LinkIcon from "./icons/LinkIcon";
+import PropTypes from "prop-types";
+import { GitHub } from "../icons/SocialMedia";
+import { Close, LinkIcon } from "../icons";
+import SocialPill from "../SocialPill";
+import LanguageSingle from "../LanguageSingle";
 
-const ImgProject = ({
+const ProjectItem = ({
   image,
   title,
   description,
@@ -59,13 +58,13 @@ const ImgProject = ({
           : "space-x-0 space-y-8 group md:space-x-8 md:space-y-0"
       }`}
     >
-      {/* // < LEFT */}
+      {/* // - IMAGE */}
       <div className="w-full md:w-1/2">
         <div
           className={`flex flex-col items-center col-span-6 row-span-5 gap-8 shadow-xl rounded-xl ${
             expandedImage
               ? "z-50 md:top-1/4 absolute bottom-auto right-auto left-0 pt-8 backdrop-blur-md border border-white/10 rounded-lg"
-              : "overflow-clip md:group-hover:-translate-y-1 md:group-hover:shadow-2xl"
+              : "overflow-clip md:group-hover:shadow-2xl"
           }`}
         >
           <div ref={menuButtonRef}>
@@ -87,7 +86,7 @@ const ImgProject = ({
                   : `${
                       expandedImage
                         ? "h-full"
-                        : "h-full object-cover md:scale-110 md:group-hover:scale-105 transition duration-500 cursor-zoom-in"
+                        : "h-full object-cover md:scale-110 md:hover:scale-105 transition duration-500 cursor-zoom-in"
                     }`
               }`}
               loading="lazy"
@@ -97,7 +96,7 @@ const ImgProject = ({
           </div>
         </div>
       </div>
-      {/* // < RIGHT */}
+      {/* // - DESCRIPTION */}
       <div
         className={`w-full md:w-1/2 md:max-w-lg ${
           expandedImage ? "blur-md" : ""
@@ -107,7 +106,7 @@ const ImgProject = ({
           {title}
         </h3>
         <div className="flex flex-wrap mt-2">
-          {/* // - LANGUAGES */}
+          {/* // . LANGUAGES */}
           <div className="relative pb-6 flex flex-wrap items-center">
             {tags &&
               tags.map((language, index) => (
@@ -117,7 +116,7 @@ const ImgProject = ({
                 />
               ))}
           </div>
-          {/* // - BUTTONS */}
+          {/* // . BUTTONS */}
           <div className="text-gray-700 dark:text-gray-400">
             {t(description)}
           </div>
@@ -141,9 +140,9 @@ const ImgProject = ({
   );
 };
 
-export default ImgProject;
+export default ProjectItem;
 
-ImgProject.defaultProps = {
+ProjectItem.defaultProps = {
   image: "",
   title: "",
   description: "",
@@ -153,7 +152,7 @@ ImgProject.defaultProps = {
   setSomeExpandedImage: () => {},
   someExpandedImage: false,
 };
-ImgProject.propTypes = {
+ProjectItem.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,

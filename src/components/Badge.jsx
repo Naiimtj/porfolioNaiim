@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const Badge = ({ children }) => {
+const Badge = ({ children, txtAlt }) => {
   return (
-    <a
-      href="https://linkedin.com/in/naiim-taefy-jimenez"
+    <Link
+      to="https://linkedin.com/in/naiim-taefy-jimenez"
       target="_blank"
       rel="noopener noreferrer"
-      role="link"
       className="flex justify-center pt-2 items-center hover:scale-110 transition duration-300"
+      alt={txtAlt}
     >
       <span className="relative inline-flex overflow-hidden rounded-full p-[1px]">
         <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E4B2FD_0%,#461DAA_50%,#E4B2FD_100%)]"></span>
@@ -15,7 +16,7 @@ const Badge = ({ children }) => {
           {children}
         </div>
       </span>
-    </a>
+    </Link>
   );
 };
 
@@ -23,7 +24,9 @@ export default Badge;
 
 Badge.defaultProps = {
   children: "",
+  txtAlt: "",
 };
 Badge.propTypes = {
   children: PropTypes.string,
+  txtAlt: PropTypes.string,
 };

@@ -1,10 +1,11 @@
 import { useTranslation } from "react-i18next";
-import Download from "../components/icons/Download";
 import {
   GitHub,
   LinkedInIcon,
   MailIcon,
 } from "../components/icons/SocialMedia";
+import { Download } from "../components/icons";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const [t] = useTranslation("translation");
@@ -14,33 +15,33 @@ export default function Footer() {
       <div className="flex items-center justify-center border-t-2 border-neutral-200 pt-4 lg:justify-center">
         {/* // - Social network icons container */}
         <div className="flex justify-center gap-1">
-          <a
-            href="mailto:naiim.tj@gmail.com"
+          <Link
+            to="mailto:naiim.tj@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
-            role="link"
             className="dark:text-grayPortfolio text-black dark:hover:text-lilaPortfolio hover:text-lilaLightPortfolio"
+            alt={t("Button to contact me")}
           >
             <MailIcon />
-          </a>
-          <a
-            href="https://linkedin.com/in/naiim-taefy-jimenez"
+          </Link>
+          <Link
+            to="https://linkedin.com/in/naiim-taefy-jimenez"
             target="_blank"
             rel="noopener noreferrer"
-            role="link"
             className="dark:text-grayPortfolio text-black dark:hover:text-lilaPortfolio hover:text-lilaLightPortfolio"
+            alt={t("Button to my LinkedIn")}
           >
             <LinkedInIcon />
-          </a>
-          <a
-            href="https://github.com/Naiimtj"
+          </Link>
+          <Link
+            to="https://github.com/Naiimtj"
             target="_blank"
             rel="noopener noreferrer"
-            role="link"
             className="dark:text-grayPortfolio text-black dark:hover:text-lilaPortfolio hover:text-lilaLightPortfolio"
+            alt={t("Button to my GitHub")}
           >
             <GitHub />
-          </a>
+          </Link>
           <a
             href={`/Naiim Taefy Jiménez - ${
               t("en-EN") === "en-EN" ? "Resume_CV" : "Curriculum"
@@ -51,6 +52,7 @@ export default function Footer() {
                 : "Naiim Taefy Jiménez - Curriculum.pdf"
             }
             className="dark:text-grayPortfolio text-black dark:hover:text-lilaPortfolio hover:text-lilaLightPortfolio"
+            alt={t("Button Download Resume_CV pdf")}
           >
             <Download />
           </a>
@@ -58,13 +60,13 @@ export default function Footer() {
       </div>
       {/* // - Copyright section*/}
       <div className="p-2 text-center">
-        <span>© 2023 Copyright:</span>
-        <a
+        <span>© 2024 Copyright:</span>
+        <Link
           className="font-semibold dark:text-grayPortfolio text-black ml-2 dark:hover:text-lilaPortfolio hover:text-lilaLightPortfolio"
-          href="https://github.com/Naiimtj"
+          to="https://github.com/Naiimtj"
         >
           Naiim Taefy
-        </a>
+        </Link>
       </div>
     </footer>
   );

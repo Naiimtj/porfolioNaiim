@@ -1,18 +1,18 @@
 import { useTranslation } from "react-i18next";
-import WorkExperience from "./WorkExperience";
-import Projects from "./Projects";
-import AboutMe from "./AboutMe";
-import SectionContainer from "../components/SectionContainer";
-import Badge from "../components/Badge";
 import {
   GitHub,
   LinkedInIcon,
   MailIcon,
 } from "../components/icons/SocialMedia";
+import { Download } from "../components/icons";
+import personalImageAlt from "/me.webp";
+import WorkExperience from "./WorkExperience";
+import Projects from "./Projects";
+import AboutMe from "./AboutMe";
+import SectionContainer from "../components/SectionContainer";
+import Badge from "../components/Badge";
 import SocialPill from "../components/SocialPill";
-import personalImageAlt from "/me.png";
 import DownloadPill from "../components/DownloadPill";
-import Download from "../components/icons/Download";
 
 const Home = () => {
   const [t] = useTranslation("translation");
@@ -26,7 +26,9 @@ const Home = () => {
               src={personalImageAlt}
               alt={t("Picture Naiim")}
             />
-            <Badge>{t("Available for work")}</Badge>
+            <Badge txtAlt={t("Button Available for work")}>
+              {t("Available for work")}
+            </Badge>
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
             {t("Hey, I'm")} Naiim
@@ -44,15 +46,24 @@ const Home = () => {
           </div>
           {/* // - SOCIAL MEDIA */}
           <nav className="flex flex-wrap justify-left md:justify-start gap-4 mt-8">
-            <SocialPill url="mailto:naiim.tj@gmail.com" txtAlt={t("Button to contact me")}>
+            <SocialPill
+              url="mailto:naiim.tj@gmail.com"
+              txtAlt={t("Button to contact me")}
+            >
               <MailIcon className="md:size-5 size-8" />
               <span className="hidden md:block">{t("Contact me")}</span>
             </SocialPill>
-            <SocialPill url="https://linkedin.com/in/naiim-taefy-jimenez"txtAlt={t("Button to my LinkedIn")}>
+            <SocialPill
+              url="https://linkedin.com/in/naiim-taefy-jimenez"
+              txtAlt={t("Button to my LinkedIn")}
+            >
               <LinkedInIcon className="md:size-5 size-8" />
               <span className="hidden md:block">LinkedIn</span>
             </SocialPill>
-            <SocialPill url="https://github.com/Naiimtj"txtAlt={t("Button to my GitHub")}>
+            <SocialPill
+              url="https://github.com/Naiimtj"
+              txtAlt={t("Button to my GitHub")}
+            >
               <GitHub className="md:size-5 size-8" />
               <span className="hidden md:block">GitHub</span>
             </SocialPill>
@@ -65,6 +76,7 @@ const Home = () => {
                   ? "Naiim Taefy Jiménez - Resume_CV.pdf"
                   : "Naiim Taefy Jiménez - Curriculum.pdf"
               }
+              txtAlt={t("Button Download Resume_CV pdf")}
             >
               <Download className="md:size-5 size-8" />
               {t("Download CV")}

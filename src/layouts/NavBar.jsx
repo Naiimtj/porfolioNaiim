@@ -1,11 +1,8 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import Briefcase from "../components/icons/Briefcase";
-import Code from "../components/icons/Code";
-import ProfileCheck from "../components/icons/ProfileCheck";
+import { Briefcase, Code, MobileMenu, ProfileCheck } from "../components/icons";
 import NavMenu from "../components/NavMenu";
-import { useEffect, useRef, useState } from "react";
-import MobileMenu from "../components/icons/MobileMenu";
 
 function scrollToSection(id) {
   const element = document.getElementById(id);
@@ -135,16 +132,21 @@ const NavBar = () => {
                   }`
             } md:p-2 md:mt-0 mt-5 rounded-xl `}
           >
-            <nav className="text-right flex justify-end items-center" ref={screenWidth && menuOpen ? menuButtonRef : null}>
+            <nav
+              className="text-right flex justify-end items-center"
+              ref={screenWidth && menuOpen ? menuButtonRef : null}
+            >
               <div className="flex flex-wrap items-center justify-end max-w-screen-xl mx-auto md:p-4">
                 <div className="flex items-center md:order-2 space-x-1 md:space-x-2 rtl:space-x-reverse">
                   <button
                     type="button"
                     className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden dark:text-gray-400 "
-                    onClick={() => setMenuOpen(!menuOpen)}                    
-                    alt={menuOpen ? t("Close main menu") :t("Open main menu")}
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    alt={menuOpen ? t("Close main menu") : t("Open main menu")}
                   >
-                    <span className="sr-only">{menuOpen ? t("Close main menu") :t("Open main menu")}</span>
+                    <span className="sr-only">
+                      {menuOpen ? t("Close main menu") : t("Open main menu")}
+                    </span>
                     <MobileMenu />
                   </button>
                 </div>
@@ -163,6 +165,7 @@ const NavBar = () => {
                             : "dark:text-grayPortfolio text-grayLightPortfolio "
                         } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-black dark:hover:text-lilaPortfolio transition duration-300 flex items-center`}
                         onClick={() => scrollToSection("experience")}
+                        alt={t("Button to Section Work Experience")}
                       >
                         <Briefcase className="size-6 mr-1" />
                         {t("Work Experience")}
@@ -176,6 +179,7 @@ const NavBar = () => {
                             : "dark:text-grayPortfolio text-grayLightPortfolio "
                         } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-black dark:hover:text-lilaPortfolio transition duration-300 flex items-center`}
                         onClick={() => scrollToSection("projects")}
+                        alt={t("Button to Section Projects")}
                       >
                         <Code className="size-6 mr-1" />
                         {t("Projects")}
@@ -189,6 +193,7 @@ const NavBar = () => {
                             : "dark:text-grayPortfolio text-grayLightPortfolio "
                         } text-base md:text-base lg:text-xl md:pr-4 my-2 md:my-0 hover:text-black dark:hover:text-lilaPortfolio transition duration-300 flex items-center`}
                         onClick={() => scrollToSection("about-me")}
+                        alt={t("Button to About Me")}
                       >
                         <ProfileCheck className="size-6 mr-1" />
                         {t("About Me")}
@@ -197,7 +202,7 @@ const NavBar = () => {
                   </ul>
                   {window.scrollY > 70 ? (
                     <div className="md:hidden flex justify-end gap-6 pb-4">
-                      <NavMenu isMobileMenu/>
+                      <NavMenu isMobileMenu />
                     </div>
                   ) : null}
                 </div>

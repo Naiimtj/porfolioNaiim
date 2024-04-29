@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
+import { Code } from "../components/icons";
 import SectionContainer from "../components/SectionContainer";
-import ProjectItem from "../components/ProjectItem";
-import Code from "../components/icons/Code";
+import Project from "../components/Project/Project";
 
 const Projects = () => {
   const [t] = useTranslation("translation");
@@ -11,7 +11,7 @@ const Projects = () => {
         <Code className="size-8" />
         {t("Projects")}
       </h2>
-      <ProjectItem />
+      <Project />
     </SectionContainer>
   );
 };
