@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Moon, Sun } from "./icons";
+import { Moon, Sun } from "../assets/icons";
 
 const ThemeSwitcher = () => {
   const [t] = useTranslation("translation");
 
   const getInitialTheme = () => {
     if (typeof localStorage !== "undefined") {
-      if(localStorage.getItem("theme")){
-      return localStorage.getItem("theme")
-      }else {
+      if (localStorage.getItem("theme")) {
+        return localStorage.getItem("theme");
+      } else {
         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
           return localStorage.setItem("theme", "dark");
         } else {
@@ -87,7 +87,7 @@ const ThemeSwitcher = () => {
     const themeMenuOptions = document.querySelectorAll(".themes-menu-option");
     themeMenuOptions.forEach((element) => {
       element.addEventListener("click", (e) => {
-        const selectedTheme = e.target.id === "dark" ? "light": "dark";
+        const selectedTheme = e.target.id === "dark" ? "light" : "dark";
         changeTheme(selectedTheme);
       });
     });
@@ -122,12 +122,14 @@ const ThemeSwitcher = () => {
       <button
         id="theme-toggle-btn"
         className="themes-menu-option appearance-none border-none flex hover:scale-125 transition duration-300"
-        onClick={() => changeTheme(theme === "dark" ? "light": "dark")}
-        alt={`${t('Change theme to')} ${theme === "dark" ? t("light"): t("dark")}`}
+        onClick={() => changeTheme(theme === "dark" ? "light" : "dark")}
+        alt={`${t("Change theme to")} ${
+          theme === "dark" ? t("light") : t("dark")
+        }`}
       >
         <span className="sr-only">{t("Select theme")}</span>
         {ThemeMenuIcon}
-      </button>      
+      </button>
     </div>
   );
 };

@@ -1,10 +1,6 @@
 import { useTranslation } from "react-i18next";
-import {
-  GitHub,
-  LinkedInIcon,
-  MailIcon,
-} from "../components/icons/SocialMedia";
-import { Download } from "../components/icons";
+import { GitHub, LinkedInIcon, MailIcon } from "../assets/icons/SocialMedia";
+import { Download } from "../assets/icons";
 import { Link } from "react-router-dom";
 
 export default function Footer() {

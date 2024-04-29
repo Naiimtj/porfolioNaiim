@@ -1,6 +1,6 @@
-# <img src="https://github.com/Naiimtj/porfolioNaiim/blob/main/public/Logo.svg" width="50" height="50" alt="Porfolio_Naiim_Logo"> Portafolio Personal / Personal Portfolio
+# <img src="https://github.com/Naiimtj/porfolioNaiim/blob/main/public/Logo.svg" width="50" height="50" alt="Porfolio_Naiim_Logo"> Porfolio Personal / Personal Portfolio
 
-¡Bienvenido a mi portafolio personal! Soy Naiim y este proyecto es una muestra de mi trabajo, habilidades y experiencia en el desarrollo web.
+¡Bienvenido a mi porfolio personal! Soy Naiim y este proyecto es una muestra de mi trabajo, habilidades y experiencia en el desarrollo web.
 
 Welcome to my personal portfolio! I'm Naiim and this project showcases my work, skills, and experience in web development.
 
@@ -14,7 +14,7 @@ Welcome to my personal portfolio! I'm Naiim and this project showcases my work, 
 
 ## Capturas de Pantalla / Screenshots
 
-Aquí puedes ver algunas capturas de pantalla de mi portafolio:
+Aquí puedes ver algunas capturas de pantalla de mi porfolio:
 
 Here are some screenshots of my portfolio:
 
@@ -41,7 +41,7 @@ npm run dev
 yarn dev
 ```
 
-4. Abre tu navegador y visita http://localhost:3000 para ver el portafolio en acción.
+4. Abre tu navegador y visita http://localhost:3000 para ver el porfolio en acción.
 
 Open your browser and visit http://localhost:3000 to see the portfolio in action.
 

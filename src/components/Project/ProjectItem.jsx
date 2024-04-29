@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
-import { GitHub } from "../icons/SocialMedia";
-import { Close, LinkIcon } from "../icons";
+import { GitHub } from "../../assets/icons/SocialMedia";
+import { Close, LinkIcon } from "../../assets/icons";
 import SocialPill from "../SocialPill";
 import LanguageSingle from "../LanguageSingle";
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
-import { ArrowDown, ArrowUp } from "./icons";
+import { ArrowDown, ArrowUp } from "../assets/icons";
 
 const ShowMore = ({ moreInfo }) => {
   const [t] = useTranslation("translation");

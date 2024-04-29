@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Briefcase, Code, MobileMenu, ProfileCheck } from "../components/icons";
+import { Briefcase, Code, MobileMenu, ProfileCheck } from "../assets/icons";
 import NavMenu from "../components/NavMenu";
 
 function scrollToSection(id) {

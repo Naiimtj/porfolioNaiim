@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Code } from "../components/icons";
+import { Code } from "../assets/icons";
 import SectionContainer from "../components/SectionContainer";
 import Project from "../components/Project/Project";
 

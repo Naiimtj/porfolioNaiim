@@ -5,7 +5,7 @@ import {
   VmWare,
   WindowsServer,
   Wordpress,
-} from "../components/icons/programs";
+} from "../assets/icons/programs";
 
 const programComponents = (program) => {
   const programIcons = {

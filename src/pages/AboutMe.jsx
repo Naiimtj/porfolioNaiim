@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { ProfileCheck } from "../components/icons";
+import { ProfileCheck } from "../assets/icons";
 import SectionContainer from "../components/SectionContainer";
 import AboutMeItem from "../components/AboutMeItem";
 

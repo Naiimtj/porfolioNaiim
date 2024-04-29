@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Briefcase } from "../components/icons";
+import { Briefcase } from "../assets/icons";
 import Experience from "../components/Experience/Experience";
 import SectionContainer from "../components/SectionContainer";
 

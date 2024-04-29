@@ -2,7 +2,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
-import { FlagES, FlagUSA } from "./icons/flagsLang";
+import { FlagES, FlagUSA } from "../assets/icons/flagsLang";
 
 const LANGS = [
   {
