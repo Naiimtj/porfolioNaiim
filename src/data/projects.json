@@ -1,7 +1,7 @@
 [
   {
     "title": "Reports",
-    "description": "Reporting platform for manufacturing plants. Built from scratch with React, Node.js and Tailwind CSS.",
+    "description": "Reporting and monitoring platform for several beverage manufacturing plants. Built from scratch with React, Node.js and Tailwind CSS.",
     "image": "/projects/Home-Seppelec.webp",
     "tags": [
       "Git",
@@ -23,7 +23,7 @@
   },
   {
     "title": "NexReel",
-    "description": "Free platform for movies and series. Built from scratch with React, Node.js and Tailwind CSS.",
+    "description": "Free movies and series catalog platform. Built from scratch with React, Node.js and Tailwind CSS.",
     "github": "https://github.com/Naiimtj/NexReel",
     "image": "/projects/NexReel.webp",
     "tags": [

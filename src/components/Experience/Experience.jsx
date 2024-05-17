@@ -10,25 +10,18 @@ const Experience = () => {
       title: "Full Stack Developer",
       company: "Seppelec",
       description: `${t(
-        "Responsible for the platform, components and utilities for creation and development. Support and maintenance of old projects and services."
+        "Responsible for the creation and development of the platform, both components and their functions. Support and maintenance of legacy projects."
       )}`,
       more: (
         <ul>
-          <li>
-            - {t("Multilingual development with I18N for broad accessibility")}.
-          </li>
+          <li>- {t("Creación de bases de datos y obtención de datos de PLCs")}.</li>
+          <li>- {t("Automating backups using Docker environments with databases")}.</li>          
           <li>- {t("Focus on minimalist style UI/UX design")}.</li>
-          <li>
-            -{" "}
-            {t(
-              "Design of tables and graphs (APEXCHARTS), with integrated dynamic actions"
-            )}
-            .
-          </li>
+          <li>- {t("Multilingual development with I18N for broad accessibility")}.</li>
+          <li>- {t("Design of tables and graphs (APEXCHARTS), with integrated dynamic actions")}.</li>
           <li>- {t("Code optimization for efficiency and performance")}.</li>
-          <li>
-            - {t("Coordination with colleagues to resolve customer request")}.
-          </li>
+          <li>- {t("Coordination with colleagues to resolve customer request")}.</li>
+          <li>- {t("Creation of documentation and user manual for customer")}.</li>
         </ul>
       ),
       languages: [
@@ -61,10 +54,11 @@ const Experience = () => {
       title: "Project Manager",
       company: "Avyliti",
       description:
-        `${t('Responsible for the creation of the platform and its proper functioning. Technical support and customer service')}.`,
+        `${t('Responsible for the creation of client portal, e-learning platform and public web. Technical support and customer service')}.`,
       more: (
         <ul>
           <li>- {t('Web design including UX and navigability')}.</li>
+          <li>- {t('Customer journey implementation')}.</li>
           <li>- {t('Payment gateway and collection system')}.</li>
           <li>- {t('Audiovisual content management')}.</li>
           <li>- {t('Technical Support')}.</li>
