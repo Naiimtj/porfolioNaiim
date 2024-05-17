@@ -10,7 +10,7 @@ const Experience = () => {
       title: "Full Stack Developer",
       company: "Seppelec",
       description: `${t(
-        "Responsible for the creation and development of the platform, both components and their functions. Support and maintenance of legacy projects."
+        "Responsible for the creation and development of the platform, both of its components and its functionalities. Support and maintenance of legacy projects."
       )}`,
       more: (
         <ul>
@@ -62,6 +62,7 @@ const Experience = () => {
           <li>- {t('Payment gateway and collection system')}.</li>
           <li>- {t('Audiovisual content management')}.</li>
           <li>- {t('Technical Support')}.</li>
+          <li>- {t("Creation of documentation and user manual for customer")}.</li>
         </ul>
       ),
       languages: ["JavaScript", "HTML5", "CSS3", "Php", "SQL"],
