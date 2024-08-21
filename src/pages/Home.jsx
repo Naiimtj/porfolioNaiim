@@ -31,7 +31,7 @@ const Home = () => {
           </h1>
           <div className="md:mt-6 mt-4 text-xl text-gray-800 dark:text-gray-300">
             <p className="dark:[&>strong]:text-purple-300 [&>strong]:text-purple-500 [&>strong]:font-semibold">
-              <strong>{t("Front-End Developer")}</strong>{" "}
+              <strong>{t("Full Stack Developer")}</strong>{" "}
               <span className="hidden md:inline-block">
                 {t("from Madrid, Spain.")}
               </span>
