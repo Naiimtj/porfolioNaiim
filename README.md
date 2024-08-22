@@ -27,5 +27,5 @@ Here are some screenshots of my portfolio:
 Si deseas contactarme para oportunidades laborales, puedes encontrarme en: / If you want to contact me for job opportunities, you can find me at:
 
 - Correo Electrónico: naiim.tj@gmail.com / Email: naiim.tj@gmail.com
-- Sitio Web: [https://porfolionaiim.pages.dev/](https://porfolionaiim.pages.dev/) / Website: [https://porfolionaiim.pages.dev/](https://porfolionaiim.pages.dev/)
+- Sitio Web: [https://naiimtaefy.pages.dev/](https://naiimtaefy.pages.dev/) / Website: [https://naiimtaefy.pages.dev/](https://naiimtaefy.pages.dev/)
 - LinkedIn: [Naiim Taefy Jiménez](https://linkedin.com/in/naiim-taefy-jimenez) / LinkedIn: [Naiim Taefy Jiménez](https://linkedin.com/in/naiim-taefy-jimenez)
