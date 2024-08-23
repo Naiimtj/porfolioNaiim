@@ -2,18 +2,22 @@ import {
   Css,
   Debian,
   Docker,
+  FastApi,
   Git,
   Html,
   JavaScript,
   MongoDb,
   MySQL,
   NodeJs,
+  Nuxt,
   Php,
+  PostgreSql,
   Python,
   React,
   Sql,
   TailwindCss,
   Vite,
+  Vue,
 } from "../assets/icons/languages";
 
 const languageComponents = (language) => {
@@ -33,6 +37,10 @@ const languageComponents = (language) => {
     "Tailwind CSS": TailwindCss,
     Vite: Vite,
     CSS3: Css,
+    Vue: Vue,
+    FastApi: FastApi,
+    PostgreSql: PostgreSql,
+    Nuxt: Nuxt,
   };
 
   return languageIcons[language] || "";

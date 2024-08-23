@@ -14,20 +14,31 @@ const Experience = () => {
       )}`,
       more: (
         <ul>
-          <li>- {t("Creación de bases de datos y obtención de datos de PLCs")}.</li>
-          <li>- {t("Automating backups using Docker environments with databases")}.</li>          
+          <li>- {t("Database creation and data retrieval from PLCs")}.</li>
+          <li>
+            - {t("Automating backups using Docker environments with databases")}.
+          </li>
           <li>- {t("Focus on minimalist style UI/UX design")}.</li>
-          <li>- {t("Multilingual development with I18N for broad accessibility")}.</li>
-          <li>- {t("Design of tables and graphs (APEXCHARTS), with integrated dynamic actions")}.</li>
+          <li>
+            - {t("Multilingual development with I18N for broad accessibility")}.
+          </li>
+          <li>
+            - {t("Design of tables and graphs (APEXCHARTS), with integrated dynamic actions")}.
+          </li>
           <li>- {t("Code optimization for efficiency and performance")}.</li>
-          <li>- {t("Coordination with colleagues to resolve customer request")}.</li>
-          <li>- {t("Creation of documentation and user manual for customer")}.</li>
+          <li>
+            - {t("Coordination with colleagues to resolve customer request")}.
+          </li>
+          <li>
+            - {t("Creation of documentation and user manual for customer")}.
+          </li>
         </ul>
       ),
       languages: [
         "Git",
         "JavaScript",
         "React",
+        "Vue",
         "Vite",
         "Tailwind CSS",
         "Python",
@@ -35,6 +46,9 @@ const Experience = () => {
         "NodeJs",
         "MySQL",
         "SQL",
+        "PostgreSql",
+        "FastApi",
+        "Nuxt",
         "HTML5",
         "CSS3",
         "Docker",
@@ -53,16 +67,19 @@ const Experience = () => {
       date: `${t("Abr")}. 2020 - Jun. 2022`,
       title: "Project Manager",
       company: "Avyliti",
-      description:
-        `${t('Responsible for the creation of client portal, e-learning platform and public web. Technical support and customer service')}.`,
+      description: `${t(
+        "Responsible for the creation of client portal, e-learning platform and public web. Technical support and customer service"
+      )}.`,
       more: (
         <ul>
-          <li>- {t('Web design including UX and navigability')}.</li>
-          <li>- {t('Customer journey implementation')}.</li>
-          <li>- {t('Payment gateway and collection system')}.</li>
-          <li>- {t('Audiovisual content management')}.</li>
-          <li>- {t('Technical Support')}.</li>
-          <li>- {t("Creation of documentation and user manual for customer")}.</li>
+          <li>- {t("Web design including UX and navigability")}.</li>
+          <li>- {t("Customer journey implementation")}.</li>
+          <li>- {t("Payment gateway and collection system")}.</li>
+          <li>- {t("Audiovisual content management")}.</li>
+          <li>- {t("Technical Support")}.</li>
+          <li>
+            - {t("Creation of documentation and user manual for customer")}.
+          </li>
         </ul>
       ),
       languages: ["JavaScript", "HTML5", "CSS3", "Php", "SQL"],
@@ -72,12 +89,14 @@ const Experience = () => {
       date: "Mar. 2020 - Jun. 2021",
       title: "Front End Developer",
       company: "Vahid Digital",
-      description: `${t('Support in technical support and creation of new web sites')}.`,
+      description: `${t(
+        "Support in technical support and creation of new web sites"
+      )}.`,
       more: (
         <ul>
-          <li>- {t('Web design including UX and navigability')}.</li>
-          <li>- {t('Content manager')}.</li>
-          <li>- {t('Payment gateway and collection system')}.</li>
+          <li>- {t("Web design including UX and navigability")}.</li>
+          <li>- {t("Content manager")}.</li>
+          <li>- {t("Payment gateway and collection system")}.</li>
         </ul>
       ),
       languages: ["JavaScript", "HTML5", "CSS3"],
