@@ -6,7 +6,7 @@ import WorkExperience from "./WorkExperience";
 import Projects from "./Projects";
 import AboutMe from "./AboutMe";
 import SectionContainer from "../components/SectionContainer";
-import Badge from "../components/Badge";
+// import Badge from "../components/Badge";
 import SocialPill from "../components/SocialPill";
 import DownloadPill from "../components/DownloadPill";
 
@@ -22,9 +22,9 @@ const Home = () => {
               src={personalImageAlt}
               alt={t("Picture Naiim")}
             />
-            <Badge txtAlt={t("Button Available for work")}>
+            {/* <Badge txtAlt={t("Button Available for work")}>
               {t("Available for work")}
-            </Badge>
+            </Badge> */}
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
             {t("Hey, I'm")} Naiim

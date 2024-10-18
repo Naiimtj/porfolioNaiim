@@ -3,10 +3,13 @@ import PropTypes from "prop-types";
 import ShowMore from "../ShowMore";
 import LanguageSingle from "../LanguageSingle";
 import ProgramSingle from "../ProgramSingle";
+import { Link } from "react-router-dom";
+import { LinkIcon } from "../../assets/icons";
 
 const ExperienceItem = ({
   title,
   company,
+  link,
   description,
   more,
   date,
@@ -39,9 +42,20 @@ const ExperienceItem = ({
           &bull;
         </span>
         <h3 className="text-xl font-bold text-lilaLightPortfolio">{title}</h3>
-        <h4 className="font-semibold text-xl text-grayLightPortfolio dark:text-white">
+        {link ? <Link
+          className={`flex font-semibold text-xl ${
+            link === ""
+              ? "text-grayLightPortfolio dark:text-white"
+              : "text-violet-500 dark:text-lilaPortfolio md:dark:hover:text-white md:hover:text-violet-700 fill-violet-500 dark:fill-lilaPortfolio md:dark:hover:fill-white md:hover:fill-violet-700 transition duration-300"
+          }`}
+          to={link}
+          target="_blank"
+        > <div className="flex gap-2 items-center">
+          {company}  <LinkIcon className="size-4" />
+        </div>
+        </Link>: <h4 className="font-semibold text-xl text-grayLightPortfolio dark:text-white">
           {company}
-        </h4>
+        </h4>}
         <time className="p-0 m-0 text-sm text-grayLightPortfolio/80 dark:text-white/80">
           {date}
         </time>
@@ -83,6 +97,7 @@ export default ExperienceItem;
 ExperienceItem.defaultProps = {
   title: "",
   company: "",
+  link: "",
   description: "",
   more: {},
   date: "",
@@ -92,6 +107,7 @@ ExperienceItem.defaultProps = {
 ExperienceItem.propTypes = {
   title: PropTypes.string,
   company: PropTypes.string,
+  link: PropTypes.string,
   description: PropTypes.string,
   more: PropTypes.object,
   date: PropTypes.string,

@@ -6,9 +6,11 @@ const Experience = () => {
 
   const EXPERIENCES = [
     {
-      date: `Oct. 2022 - ${t("Currently")}...`,
+      date: "Oct. 2022 - Oct. 2024",
+      // date: `Oct. 2022 - ${t("Currently")}...`,
       title: "Full Stack Developer",
       company: "Seppelec",
+      link: "https://seppelec.com/",
       description: `${t(
         "Responsible for the creation and development of the platform, both of its components and its functionalities. Support and maintenance of legacy projects."
       )}`,
@@ -67,6 +69,7 @@ const Experience = () => {
       date: `${t("Abr")}. 2020 - Jun. 2022`,
       title: "Project Manager",
       company: "Avyliti",
+      link: "",
       description: `${t(
         "Responsible for the creation of client portal, e-learning platform and public web. Technical support and customer service"
       )}.`,
@@ -89,6 +92,7 @@ const Experience = () => {
       date: "Mar. 2020 - Jun. 2021",
       title: "Front End Developer",
       company: "Vahid Digital",
+      link: "https://www.vahid.es/",
       description: `${t(
         "Support in technical support and creation of new web sites"
       )}.`,
